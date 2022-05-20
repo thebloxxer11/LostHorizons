@@ -1,0 +1,6 @@
+{
+    "parent": "losthorizons:block/cross_tall",
+    "textures": {
+      "cross_tall": "losthorizons:block/arcanite_crystal_stage1"
+    }
+  }

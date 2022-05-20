@@ -1,0 +1,6 @@
+{
+    "parent": "losthorizons:block/cross_tall",
+    "textures": {
+      "cross_tall": "losthorizons:block/noxite_crystal_stage1"
+    }
+  }

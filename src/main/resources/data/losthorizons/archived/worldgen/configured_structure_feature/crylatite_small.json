@@ -1,0 +1,10 @@
+{
+    "type": "minecraft:stronghold",
+    "config": {
+      "start_pool": "losthorizons:crylatite_small",
+      "size": 1
+    },
+    "biomes": "#losthorizons:crylatite_spawns",
+    "adapt_noise": true,
+    "spawn_overrides": {}
+  }

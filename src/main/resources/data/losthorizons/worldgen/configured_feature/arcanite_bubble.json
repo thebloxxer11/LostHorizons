@@ -1,0 +1,30 @@
+{
+    "type": "losthorizons:crystal_bubble",
+    "config": {
+        "chance": 16,
+        "hMin": 5,
+        "hMax": 7,
+        "rXMin": 5,
+        "rXMax": 7,
+        "rZMin": 5,
+        "rZMax": 7,
+        "blockSand": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+                "Name": "losthorizons:arcanite_sand",
+                "properties": {
+
+                }
+            }
+        },
+        "blockCrystal": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+                "Name": "losthorizons:arcanite_block",
+                "properties": {
+                    
+                }
+            }
+        }
+    }
+}

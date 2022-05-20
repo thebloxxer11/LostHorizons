@@ -1,0 +1,15 @@
+{
+    "name": "losthorizons:shoctite_large",
+    "fallback": "minecraft:empty",
+    "elements": [
+      {
+        "weight": 1,
+        "element": {
+          "element_type": "minecraft:single_pool_element",
+          "location": "losthorizons:shoctite_large",
+          "projection": "rigid",
+          "processors": "minecraft:empty"
+        }
+      }
+    ]
+  }

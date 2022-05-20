@@ -1,0 +1,10 @@
+{
+    "type": "minecraft:stronghold",
+    "config": {
+      "start_pool": "losthorizons:arcanite_medium",
+      "size": 1
+    },
+    "biomes": "#losthorizons:arcanite_spawns", 
+    "adapt_noise": true,
+    "spawn_overrides": {}
+  }

@@ -1,0 +1,22 @@
+{
+    "structures": [
+      {
+        "structure": "losthorizons:arcanite_small",
+        "weight": 3
+      },
+      {
+        "structure": "losthorizons:arcanite_medium",
+        "weight": 2
+      },
+      {
+        "structure": "losthorizons:arcanite_large",
+        "weight": 1
+      }
+    ],
+    "placement": {
+      "type": "minecraft:random_spread",
+      "spacing": 6,
+      "separation": 2,
+      "salt": 77774654 
+    }
+  }

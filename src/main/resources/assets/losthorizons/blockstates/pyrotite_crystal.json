@@ -1,0 +1,28 @@
+{
+    "variants": {
+      "age=0": {
+        "model": "losthorizons:block/pyrotite_crystal_stage0"
+      },
+      "age=1": {
+        "model": "losthorizons:block/pyrotite_crystal_stage0"
+      },
+      "age=2": {
+        "model": "losthorizons:block/pyrotite_crystal_stage0"
+      },
+      "age=3": {
+        "model": "losthorizons:block/pyrotite_crystal_stage0"
+      },
+      "age=4": {
+        "model": "losthorizons:block/pyrotite_crystal_stage0"
+      },
+      "age=5": {
+        "model": "losthorizons:block/pyrotite_crystal_stage0"
+      },
+      "age=6": {
+        "model": "losthorizons:block/pyrotite_crystal_stage0"
+      },
+      "age=7": {
+        "model": "losthorizons:block/pyrotite_crystal_stage1"
+      }
+    }
+  }

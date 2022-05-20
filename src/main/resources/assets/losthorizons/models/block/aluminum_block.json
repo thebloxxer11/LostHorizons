@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+      "all": "losthorizons:block/aluminum_block"
+    }
+  }

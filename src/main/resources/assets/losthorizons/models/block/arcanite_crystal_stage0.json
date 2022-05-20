@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:block/cross",
+    "textures": {
+      "cross": "losthorizons:block/arcanite_crystal_stage0"
+    }
+  }

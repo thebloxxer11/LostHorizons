@@ -1,0 +1,10 @@
+{
+    "type": "minecraft:stronghold",
+    "config": {
+      "start_pool": "losthorizons:pyrotite_small",
+      "size": 1
+    },
+    "biomes": "#losthorizons:pyrotite_spawns",
+    "adapt_noise": true,
+    "spawn_overrides": {}
+  }

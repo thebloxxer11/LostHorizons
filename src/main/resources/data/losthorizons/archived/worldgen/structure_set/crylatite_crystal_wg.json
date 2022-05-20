@@ -1,0 +1,22 @@
+{
+    "structures": [
+      {
+        "structure": "losthorizons:crylatite_small",
+        "weight": 3
+      },
+      {
+        "structure": "losthorizons:crylatite_medium",
+        "weight": 2
+      },
+      {
+        "structure": "losthorizons:crylatite_large",
+        "weight": 1
+      }
+    ],
+    "placement": {
+      "type": "minecraft:random_spread",
+      "spacing": 9,
+      "separation": 3,
+      "salt": 46287267  
+    }
+  }

@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:block/cross",
+    "textures": {
+      "cross": "losthorizons:block/crylatite_crystal_stage0"
+    }
+  }

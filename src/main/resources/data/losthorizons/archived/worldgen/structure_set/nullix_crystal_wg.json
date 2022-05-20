@@ -1,0 +1,22 @@
+{
+    "structures": [
+      {
+        "structure": "losthorizons:nullix_small",
+        "weight": 3
+      },
+      {
+        "structure": "losthorizons:nullix_medium",
+        "weight": 2
+      },
+      {
+        "structure": "losthorizons:nullix_large",
+        "weight": 1
+      }
+    ],
+    "placement": {
+      "type": "minecraft:random_spread",
+      "spacing": 6,
+      "separation": 2,
+      "salt": 31075597 
+    }
+  }

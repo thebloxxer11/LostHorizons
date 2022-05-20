@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "losthorizons",
+  "version": "0.0.0",
+
+  "name": "Lost Horizons",
+  "description": "Lost Horizons is a science fiction/fantasy mod that bridges interstellar exploration and industry with arcane materials and environments.",
+  "authors": [
+    "thebloxxer11"
+  ],
+  "contact": {
+    "homepage": " ",
+    "sources": "https://github.com/thebloxxer11/LostHorizons"
+  },
+
+  "license": "MIT",
+  "icon": "assets/losthorizons/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.tb11.LostHorizons.LostHorizons"
+    ],
+    "client": [
+      "net.tb11.LostHorizons.LostHorizonsClient"
+    ]
+  },
+  "mixins": [
+    "modid.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.13.3",
+    "fabric": "*",
+    "minecraft": "1.18.x",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
