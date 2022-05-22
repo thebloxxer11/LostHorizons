@@ -1,7 +1,7 @@
 {
     "type": "losthorizons:crystal_bubble",
     "config": {
-        "chance": 16,
+        "chance": 8,
         "hMin": 5,
         "hMax": 7,
         "rXMin": 5,

@@ -154,8 +154,8 @@ public class LostHorizons implements ModInitializer {
 	
 	//Worldgen - Crystal Bubbles
 	private static final Feature<CrystalBubbleFeatureConfig> CRYSTALBUBBLE = new CrystalBubbleFeature(CrystalBubbleFeatureConfig.CODEC);
-	public static ConfiguredFeature<?,?> CON_ARCANITE_BUBBLE = new ConfiguredFeature(CRYSTALBUBBLE, new CrystalBubbleFeatureConfig(ConstantIntProvider.create(16), ConstantIntProvider.create(5), ConstantIntProvider.create(7), ConstantIntProvider.create(5), ConstantIntProvider.create(7), ConstantIntProvider.create(5), ConstantIntProvider.create(7), BlockStateProvider.of(Arcanite_Sand.getDefaultState()), BlockStateProvider.of(Arcanite_Block.getDefaultState())));
-	public static PlacedFeature GEN_ARCANITE_BUBBLE = new PlacedFeature(RegistryEntry.of(CON_ARCANITE_BUBBLE), Arrays.asList(CountPlacementModifier.of(1), SquarePlacementModifier.of(), HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(48))));
+	public static ConfiguredFeature<?,?> CON_ARCANITE_BUBBLE = new ConfiguredFeature(CRYSTALBUBBLE, new CrystalBubbleFeatureConfig(ConstantIntProvider.create(8), ConstantIntProvider.create(5), ConstantIntProvider.create(7), ConstantIntProvider.create(5), ConstantIntProvider.create(7), ConstantIntProvider.create(5), ConstantIntProvider.create(7), BlockStateProvider.of(Arcanite_Sand), BlockStateProvider.of(Arcanite_Block)));
+	public static PlacedFeature GEN_ARCANITE_BUBBLE = new PlacedFeature(RegistryEntry.of(CON_ARCANITE_BUBBLE), Arrays.asList(CountPlacementModifier.of(1), SquarePlacementModifier.of(), HeightRangePlacementModifier.uniform(YOffset.fixed(-56), YOffset.fixed(48))));
 
 	
 	@Override
@@ -298,6 +298,6 @@ public class LostHorizons implements ModInitializer {
 			Registry.register(Registry.FEATURE, new Identifier("losthorizons","crystal_bubble"), CRYSTALBUBBLE);
 			Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier("losthorizons", "arcanite_bubble"), CON_ARCANITE_BUBBLE);
 			Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier("losthorizons", "arcanite_bubble"), GEN_ARCANITE_BUBBLE);
-			BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_DECORATION, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier("losthorizons", "arcanite_bubble")));
+			BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_STRUCTURES, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier("losthorizons", "arcanite_bubble")));
 		}
 }
