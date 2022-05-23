@@ -154,7 +154,7 @@ public class LostHorizons implements ModInitializer {
 	
 	//Worldgen - Crystal Bubbles
 	private static final Feature<CrystalBubbleFeatureConfig> CRYSTALBUBBLE = new CrystalBubbleFeature(CrystalBubbleFeatureConfig.CODEC);
-	public static ConfiguredFeature<?,?> CON_ARCANITE_BUBBLE = new ConfiguredFeature(CRYSTALBUBBLE, new CrystalBubbleFeatureConfig(ConstantIntProvider.create(8), ConstantIntProvider.create(5), ConstantIntProvider.create(7), ConstantIntProvider.create(5), ConstantIntProvider.create(7), ConstantIntProvider.create(5), ConstantIntProvider.create(7), BlockStateProvider.of(Arcanite_Sand), BlockStateProvider.of(Arcanite_Block)));
+	public static ConfiguredFeature<?,?> CON_ARCANITE_BUBBLE = new ConfiguredFeature(CRYSTALBUBBLE, new CrystalBubbleFeatureConfig(ConstantIntProvider.create(1), ConstantIntProvider.create(5), ConstantIntProvider.create(7), ConstantIntProvider.create(5), ConstantIntProvider.create(7), ConstantIntProvider.create(5), ConstantIntProvider.create(7), BlockStateProvider.of(Arcanite_Sand), BlockStateProvider.of(Arcanite_Block)));
 	public static PlacedFeature GEN_ARCANITE_BUBBLE = new PlacedFeature(RegistryEntry.of(CON_ARCANITE_BUBBLE), Arrays.asList(CountPlacementModifier.of(1), SquarePlacementModifier.of(), HeightRangePlacementModifier.uniform(YOffset.fixed(-56), YOffset.fixed(48))));
 
 	
