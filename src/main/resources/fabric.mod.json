@@ -23,6 +23,9 @@
     ],
     "client": [
       "net.tb11.LostHorizons.LostHorizonsClient"
+    ],
+    "terrablender": [
+      "net.tb11.LostHorizons.terrablender_worldgen.LostHorizonsTBWorldgen"
     ]
   },
   "mixins": [

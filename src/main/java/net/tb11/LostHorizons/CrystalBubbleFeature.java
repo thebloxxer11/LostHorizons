@@ -65,12 +65,12 @@ public class CrystalBubbleFeature extends Feature<CrystalBubbleFeatureConfig>{
         double k = point.getZ();
         double l = point.getY();
 
-        for (double s = 3; s<=1; s--){
+        for (Double s = 3.0D; s<=1.0D; s--){
             for (Double x = -1.0D*rX; x <= rX; x++){
                 for (Double z = -1.0D*rZ; z <= rZ;z++){
                     for (Double y = -2.0D; y<=0; y++){
                         //LostHorizons.LOGGER.info("Sand");
-                        BlockPos actingPoint = new BlockPos(x, s, z);
+                        BlockPos actingPoint = new BlockPos(x.intValue(), s.intValue(), z.intValue());
                         if ((Math.pow((x+h), 2.0D)/((rS/s)*Math.pow(rX, 2.0D)))+(Math.pow((z-k), 2.0D)/((rS/s)*Math.pow(rZ, 2.0D)))+Math.pow((y+l), 2.0D)/9<=1){
                             context.getWorld().setBlockState(actingPoint, config.blockSand().getBlockState(context.getRandom(), actingPoint), 3);
                         }

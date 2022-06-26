@@ -20,6 +20,8 @@ repositories {
     maven { url "https://maven.shedaniel.me" }
 	//WTHIT
 	maven { url "https://maven.bai.lol" }
+	//TerraBlender
+	maven { url = 'https://maven.minecraftforge.net/' }
 
 }
 
@@ -39,6 +41,8 @@ dependencies {
 	modCompileOnly "mcp.mobius.waila:wthit-api:fabric-${wthitVersion}"
 	modRuntimeOnly "mcp.mobius.waila:wthit:fabric-${wthitVersion}"
 	modImplementation "lol.bai:badpackets:fabric-${badpackets_version}"
+	//TerraBlender
+	modImplementation "com.github.glitchfiend:TerraBlender-fabric:${terrablender_version}"
 }
 processResources {
 	inputs.property "version", project.version
