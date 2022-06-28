@@ -1,4 +1,4 @@
-package net.tb11.LostHorizons;
+package net.tb11.LostHorizons.crops;
 
 
 import net.minecraft.block.AbstractBlock;
@@ -10,6 +10,7 @@ import net.minecraft.item.ItemConvertible;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
+import net.tb11.LostHorizons.LostHorizons;
 
 
 public class PyrotiteCrystal extends CropBlock{

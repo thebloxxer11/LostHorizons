@@ -1,4 +1,4 @@
-package net.tb11.LostHorizons;
+package net.tb11.LostHorizons.deprecated;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;

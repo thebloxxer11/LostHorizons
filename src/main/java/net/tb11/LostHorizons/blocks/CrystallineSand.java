@@ -1,4 +1,4 @@
-package net.tb11.LostHorizons;
+package net.tb11.LostHorizons.blocks;
 
 import java.util.Random;
 

@@ -1,4 +1,4 @@
-package net.tb11.LostHorizons;
+package net.tb11.LostHorizons.deprecated;
 
 import com.mojang.serialization.Codec;
 
@@ -7,6 +7,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.util.FeatureContext;
+import net.tb11.LostHorizons.LostHorizons;
 
 
 

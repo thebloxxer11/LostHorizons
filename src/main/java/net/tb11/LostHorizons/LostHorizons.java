@@ -38,6 +38,13 @@ import net.minecraft.world.gen.placementmodifier.CountPlacementModifier;
 import net.minecraft.world.gen.placementmodifier.HeightRangePlacementModifier;
 import net.minecraft.world.gen.placementmodifier.SquarePlacementModifier;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
+import net.tb11.LostHorizons.blocks.CrystallineSand;
+import net.tb11.LostHorizons.crops.ArcaniteCrystal;
+import net.tb11.LostHorizons.crops.CrylatiteCrystal;
+import net.tb11.LostHorizons.crops.NoxiteCrystal;
+import net.tb11.LostHorizons.crops.NullixCrystal;
+import net.tb11.LostHorizons.crops.PyrotiteCrystal;
+import net.tb11.LostHorizons.crops.ShoctiteCrystal;
 
 public class LostHorizons implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
