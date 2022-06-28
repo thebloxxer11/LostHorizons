@@ -41,6 +41,7 @@ public class Cavern_Biomes {
 
     private static void globalOverworldGeneration(GenerationSettings.Builder builder)
     {
+        //Add Biome Features
         DefaultBiomeFeatures.addLandCarvers(builder);
         DefaultBiomeFeatures.addDripstone(builder);
         DefaultBiomeFeatures.addAmethystGeodes(builder);
@@ -59,6 +60,8 @@ public class Cavern_Biomes {
         }
         //Zombie Villagers
         spawnBuilder.spawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.ZOMBIE_VILLAGER, 2, 1, 1));
+        //Bats
+        spawnBuilder.spawn(SpawnGroup.AMBIENT, new SpawnEntry(EntityType.BAT, 5, 8, 8));
 
 
         //Biome Features
