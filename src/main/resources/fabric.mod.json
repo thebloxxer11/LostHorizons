@@ -4,13 +4,13 @@
   "version": "0.0.0",
 
   "name": "Lost Horizons",
-  "description": "Lost Horizons is a science fiction/fantasy mod that bridges interstellar exploration and industry with arcane materials and environments.",
+  "description": "Lost Horizons is a science fiction/fantasy mod that bridges the scientific and the arcane in a whole new perspective. Additional Credits to those I referenced during the making of this mod: SuperCoder7979 for Cave Biomes; OreCruncher (Dynamic Surroundings) for Sounds",
   "authors": [
     "thebloxxer11"
   ],
   "contact": {
     "homepage": " ",
-    "sources": "https://github.com/thebloxxer11/LostHorizons"
+    "sources": "https://github.com/thebloxxer11/LostHorizons-1.18"
   },
 
   "license": "MIT",
