@@ -41,13 +41,12 @@ public class Cavern_Biomes {
 
     private static void globalOverworldGeneration(GenerationSettings.Builder builder)
     {
-        //Add Biome Features
+        //Global Biome Features
         DefaultBiomeFeatures.addLandCarvers(builder);
-        DefaultBiomeFeatures.addDripstone(builder);
         DefaultBiomeFeatures.addAmethystGeodes(builder);
         DefaultBiomeFeatures.addDungeons(builder);
-        //DefaultBiomeFeatures.addDefaultUndergroundVariety(builder);
-        //DefaultBiomeFeatures.addDefaultSprings(builder);
+        DefaultBiomeFeatures.addDefaultUndergroundVariety(builder);
+        DefaultBiomeFeatures.addDefaultSprings(builder);
         DefaultBiomeFeatures.addFrozenTopLayer(builder);
     }
 
