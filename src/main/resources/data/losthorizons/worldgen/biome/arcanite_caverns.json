@@ -1,7 +1,7 @@
 {
     "precipitation": "none",
     "category": "none",
-    "temperature": 0.0,
+    "temperature": 0.5,
     "temperature_modifier": "none",
     "downfall": 0.0,
     "creature_spawn_probability": 0.0,
@@ -12,12 +12,12 @@
 
     },
     "features": {
-
+        
     },
     "spawners": {
 
     },
-    "spawn_costs": [
-
-    ]
+    "spawn_costs": {
+        
+    }
 }

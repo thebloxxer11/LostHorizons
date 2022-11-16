@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:dripstone_cluster",
+    "config": {
+        "state_provider": {
+            "fallback": "minecraft:sand",
+            "rules": {
+                "if_true": "true",
+                "then": {
+                    "type": "simple_state_provider",
+                    "state": {
+                        "name": "losthorizons:arcanite_sand"
+                    }
+                }
+            }
+        },
+        "radius": 4,
+        "half_height": 3,
+        "target": {
+            "type": "matching_block_tag",
+            "tag": "minecraft/dripstone_replaceable_blocks"
+        }
+    }
+}

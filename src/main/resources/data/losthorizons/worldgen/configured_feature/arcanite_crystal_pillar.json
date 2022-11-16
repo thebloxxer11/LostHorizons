@@ -1,0 +1,16 @@
+{
+    "type": "losthorizons:crystal_spike",
+    "config": {
+        "direction": "up",
+        "allowed_placement": {
+                "type": "matching_block_tag",
+                "tag": "minecraft/dripstone_replaceable_blocks"
+        },
+        "prioritize_tip": false,
+        "layers": [
+            {
+
+            }
+        ]
+    }
+}
