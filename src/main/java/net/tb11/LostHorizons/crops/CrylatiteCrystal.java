@@ -41,8 +41,8 @@ public class CrylatiteCrystal extends CropBlock{
     protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos){
         return floor.isOf(LostHorizons.Crylatite_Sand);
     }
-    @Override
-    public boolean isFertilizable(BlockView world, BlockPos pos, BlockState state, boolean isClient){
-        return false;
-    }
+    // @Override
+    // public boolean isFertilizable(BlockView world, BlockPos pos, BlockState state, boolean isClient){
+    //     return false;
+    // }
 }

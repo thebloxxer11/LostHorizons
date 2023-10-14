@@ -41,8 +41,8 @@ public class ShoctiteCrystal extends CropBlock{
     protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos){
         return floor.isOf(LostHorizons.Shoctite_Sand);
     }
-    @Override
-    public boolean isFertilizable(BlockView world, BlockPos pos, BlockState state, boolean isClient){
-        return false;
-    }
+    // @Override
+    // public boolean isFertilizable(BlockView world, BlockPos pos, BlockState state, boolean isClient){
+    //     return false;
+    // }
 }

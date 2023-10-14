@@ -1,18 +1,12 @@
 package net.tb11.LostHorizons;
 
-import java.util.Arrays;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
-import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
-
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.fabricmc.fabric.impl.itemgroup.FabricItemGroupBuilderImpl;
 import net.minecraft.block.Block;
 import net.minecraft.block.CropBlock;
 import net.minecraft.item.AliasedBlockItem;
@@ -21,26 +15,14 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.registry.BuiltinRegistries;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.intprovider.ConstantIntProvider;
-import net.minecraft.world.gen.GenerationStep;
-import net.minecraft.world.gen.YOffset;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.OreConfiguredFeatures;
-import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.feature.PlacedFeature;
-import net.minecraft.world.gen.placementmodifier.CountPlacementModifier;
-import net.minecraft.world.gen.placementmodifier.HeightRangePlacementModifier;
-import net.minecraft.world.gen.placementmodifier.SquarePlacementModifier;
-import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.tb11.LostHorizons.blocks.CrystallineSand;
 import net.tb11.LostHorizons.crops.ArcaniteCrystal;
 import net.tb11.LostHorizons.crops.CrylatiteCrystal;
@@ -147,25 +129,13 @@ public class LostHorizons implements ModInitializer {
 
 	//Worldgen - Biome Mod API - EXP
 	//Ores
-	/* DEPRECATED -- USE JSON INSTEAD
-	public static ConfiguredFeature<?,?> CON_TIN_ORE = new ConfiguredFeature(Feature.ORE, new OreFeatureConfig(OreConfiguredFeatures.STONE_ORE_REPLACEABLES, Tin_Ore.getDefaultState(), 9));
-	public static PlacedFeature GEN_TIN_ORE = new PlacedFeature(RegistryEntry.of(CON_TIN_ORE), Arrays.asList(CountPlacementModifier.of(20), SquarePlacementModifier.of(), HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(64))));
-	public static ConfiguredFeature<?,?> CON_TIN_ORE_DEEP = new ConfiguredFeature(Feature.ORE, new OreFeatureConfig(OreConfiguredFeatures.DEEPSLATE_ORE_REPLACEABLES, Tin_Ore_Deep.getDefaultState(), 9));
-	public static PlacedFeature GEN_TIN_ORE_DEEP = new PlacedFeature(RegistryEntry.of(CON_TIN_ORE_DEEP), Arrays.asList(CountPlacementModifier.of(20), SquarePlacementModifier.of(), HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(0))));
-	public static ConfiguredFeature<?,?> CON_LITHIUM_ORE = new ConfiguredFeature(Feature.ORE, new OreFeatureConfig(OreConfiguredFeatures.STONE_ORE_REPLACEABLES, Lithium_Ore.getDefaultState(), 9));
-	public static PlacedFeature GEN_LITHIUM_ORE = new PlacedFeature(RegistryEntry.of(CON_LITHIUM_ORE), Arrays.asList(CountPlacementModifier.of(10), SquarePlacementModifier.of(), HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(32))));
-	public static ConfiguredFeature<?,?> CON_LITHIUM_ORE_DEEP = new ConfiguredFeature(Feature.ORE, new OreFeatureConfig(OreConfiguredFeatures.DEEPSLATE_ORE_REPLACEABLES, Lithium_Ore_Deep.getDefaultState(), 9));
-	public static PlacedFeature GEN_LITHIUM_ORE_DEEP = new PlacedFeature(RegistryEntry.of(CON_LITHIUM_ORE_DEEP), Arrays.asList(CountPlacementModifier.of(10), SquarePlacementModifier.of(), HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(0))));
-	public static ConfiguredFeature<?,?> CON_ALUM_ORE = new ConfiguredFeature(Feature.ORE, new OreFeatureConfig(OreConfiguredFeatures.STONE_ORE_REPLACEABLES, Aluminum_Ore.getDefaultState(), 9));
-	public static PlacedFeature GEN_ALUM_ORE = new PlacedFeature(RegistryEntry.of(CON_ALUM_ORE), Arrays.asList(CountPlacementModifier.of(20), SquarePlacementModifier.of(), HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(48))));
-	public static ConfiguredFeature<?,?> CON_GALENA_ORE = new ConfiguredFeature(Feature.ORE, new OreFeatureConfig(OreConfiguredFeatures.STONE_ORE_REPLACEABLES, Galena_Ore.getDefaultState(), 9));
-	public static PlacedFeature GEN_GALENA_ORE = new PlacedFeature(RegistryEntry.of(CON_GALENA_ORE), Arrays.asList(CountPlacementModifier.of(15), SquarePlacementModifier.of(), HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(32))));
-	public static ConfiguredFeature<?,?> CON_URANIUM_ORE = new ConfiguredFeature(Feature.ORE, new OreFeatureConfig(OreConfiguredFeatures.DEEPSLATE_ORE_REPLACEABLES, Uranium_Ore.getDefaultState(), 6));
-	public static PlacedFeature GEN_URANIUM_ORE = new PlacedFeature(RegistryEntry.of(CON_URANIUM_ORE), Arrays.asList(CountPlacementModifier.of(10), SquarePlacementModifier.of(), HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(0))));
-	public static ConfiguredFeature<?,?> CON_HEXATIUM_ORE = new ConfiguredFeature(Feature.ORE, new OreFeatureConfig(OreConfiguredFeatures.DEEPSLATE_ORE_REPLACEABLES, Hexatium_Ore.getDefaultState(), 4));
-	public static PlacedFeature GEN_HEXATIUM_ORE = new PlacedFeature(RegistryEntry.of(CON_HEXATIUM_ORE), Arrays.asList(CountPlacementModifier.of(5), SquarePlacementModifier.of(), HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(-32))));
-	 */
-	
+	public static final RegistryKey<PlacedFeature> TIN_ORE_PLACED_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier("losthorizons", "tin_ore"));
+	public static final RegistryKey<PlacedFeature> LITHIUM_ORE_PLACED_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier("losthorizons", "lithium_ore"));
+	public static final RegistryKey<PlacedFeature> ALUM_ORE_PLACED_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier("losthorizons", "aluminum_ore"));
+	public static final RegistryKey<PlacedFeature> GALENA_ORE_PLACED_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier("losthorizons", "galena_ore"));
+	public static final RegistryKey<PlacedFeature> URANIUM_ORE_PLACED_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier("losthorizons", "uranium_ore"));
+	public static final RegistryKey<PlacedFeature> HEXATIUM_ORE_PLACED_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier("losthorizons", "hexatium_ore"));
+
 	//Worldgen - Crystal Bubbles
 	//private static final Feature<CrystalBubbleFeatureConfig> CRYSTALBUBBLE = new CrystalBubbleFeature(CrystalBubbleFeatureConfig.CODEC);
 	//public static ConfiguredFeature<?,?> CON_ARCANITE_BUBBLE = new ConfiguredFeature(CRYSTALBUBBLE, new CrystalBubbleFeatureConfig(ConstantIntProvider.create(1), ConstantIntProvider.create(5), ConstantIntProvider.create(7), ConstantIntProvider.create(5), ConstantIntProvider.create(7), ConstantIntProvider.create(5), ConstantIntProvider.create(7), BlockStateProvider.of(Arcanite_Sand), BlockStateProvider.of(Arcanite_Block)));
