@@ -53,7 +53,7 @@ public class ArcaniteCrystal extends CropBlock{
         return floor.isOf(LostHorizons.Arcanite_Sand);
     }
     // @Override
-    // public boolean isFertilizable(BlockView world, BlockPos pos, BlockState state, boolean isClient){
-    //     return false;
-    // }
+    public boolean isFertilizable(BlockView world, BlockPos pos, BlockState state){
+        return false;
+    }
 }

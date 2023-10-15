@@ -250,35 +250,7 @@ public class LostHorizons implements ModInitializer {
 			Registry.register(Registries.BLOCK, new Identifier("losthorizons", "crylatite_crystal"), Crylatite_Crystal);
 			Registry.register(Registries.BLOCK, new Identifier("losthorizons", "noxite_crystal"), Noxite_Crystal);
 			Registry.register(Registries.BLOCK, new Identifier("losthorizons", "shoctite_crystal"), Shoctite_Crystal);
-		//Worldgen - Biome ModXP
-		//Ores
-		/* DEPRECATED -- USE JSON INSTEAD
-			Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier("losthorizons", "tin_ore_std"), CON_TIN_ORE);
-			Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier("losthorizons", "tin_ore_std"), GEN_TIN_ORE);
-			BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(Registries.PLACED_FEATURE_KEY, new Identifier("losthorizons", "tin_ore_std")));
-			Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier("losthorizons", "tin_ore_deep"), CON_TIN_ORE_DEEP);
-			Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier("losthorizons", "tin_ore_deep"), GEN_TIN_ORE_DEEP);
-			BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier("losthorizons", "tin_ore_deep")));
-			Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier("losthorizons", "lithium_ore_std"), CON_LITHIUM_ORE);
-			Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier("losthorizons", "lithium_ore_std"), GEN_LITHIUM_ORE);
-			BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier("losthorizons", "lithium_ore_std")));
-			Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier("losthorizons", "lithium_ore_deep"), CON_LITHIUM_ORE_DEEP);
-			Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier("losthorizons", "lithium_ore_deep"), GEN_LITHIUM_ORE_DEEP);
-			BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier("losthorizons", "lithium_ore_deep")));
-			Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier("losthorizons", "aluminum_ore"), CON_ALUM_ORE);
-			Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier("losthorizons", "aluminum_ore"), GEN_ALUM_ORE);
-			BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier("losthorizons", "aluminum_ore")));
-			Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier("losthorizons", "galena_ore"), CON_GALENA_ORE);
-			Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier("losthorizons", "galena_ore"), GEN_GALENA_ORE);
-			BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier("losthorizons", "galena_ore")));
-			Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier("losthorizons", "uranium_ore"), CON_URANIUM_ORE);
-			Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier("losthorizons", "uranium_ore"), GEN_URANIUM_ORE);
-			BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier("losthorizons", "uranium_ore")));
-			Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier("losthorizons", "hexatium_ore"), CON_HEXATIUM_ORE);
-			Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier("losthorizons", "hexatium_ore"), GEN_HEXATIUM_ORE);
-			BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier("losthorizons", "hexatium_ore")));
-			 */
-			//Group Registries
+		//Group Registries
 			Registry.register(Registries.ITEM_GROUP, new Identifier("losthorizons", "materials_group"), LHMAT_GROUP);
 			Registry.register(Registries.ITEM_GROUP, new Identifier("losthorizons", "hybrid_group"), LHHYB_GROUP);
 			Registry.register(Registries.ITEM_GROUP, new Identifier("losthorizons", "techna_group"), LHTEC_GROUP);
