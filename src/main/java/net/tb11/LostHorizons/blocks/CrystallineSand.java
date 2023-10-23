@@ -1,26 +1,42 @@
 package net.tb11.LostHorizons.blocks;
 
-import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.server.world.ServerWorld;
+import net.minecraft.block.BlockWithEntity;
+import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityTicker;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.random.Random;
+import net.minecraft.world.World;
+import net.tb11.LostHorizons.LostHorizons;
+//import net.tb11.LostHorizons.block_states.CrystallineSandBlockState;
+import net.tb11.LostHorizons.block_entities.CrystallineSandBlockEntity;
 
-public class CrystallineSand extends Block{
+public class CrystallineSand extends BlockWithEntity {
     Block crystalType;
-    public CrystallineSand(Settings settings, Block crystal){
+    Random random =  Random.create();
+    public CrystallineSand(Settings settings, Block crystal) {
         super(settings);
         crystalType = crystal;
     }
-    
-    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random){
-        BlockPos blockAbovePos = new BlockPos(pos.getX(), pos.getY()+1, pos.getZ());
-        if (world.getBlockState(blockAbovePos).getBlock() == Blocks.AIR) {
-            if (random.nextInt(24) == 0) {
-                Block.replace(Blocks.AIR.getDefaultState(), this.crystalType.getDefaultState(), world, blockAbovePos, 0);
-             }
-            }
+    @Override
+    public BlockRenderType getRenderType(BlockState state) {
+        return BlockRenderType.MODEL;
+    }
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
+        return validateTicker(type, LostHorizons.CRYSTAL_SAND_BLOCK_ENTITY, (world1, pos, state1, be) -> CrystallineSandBlockEntity.tick(world1, pos, state1, be, this.random));
+    }
+
+    @Override
+    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+        return new CrystallineSandBlockEntity(pos, state);
+    }
+
+    public Block getCrystalType(){
+        return this.crystalType;
     }
 }

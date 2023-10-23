@@ -10,6 +10,7 @@ import net.minecraft.item.ItemConvertible;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
+import net.minecraft.world.WorldView;
 import net.tb11.LostHorizons.LostHorizons;
 
 
@@ -42,7 +43,7 @@ public class CrylatiteCrystal extends CropBlock{
         return floor.isOf(LostHorizons.Crylatite_Sand);
     }
     // @Override
-    public boolean isFertilizable(BlockView world, BlockPos pos, BlockState state, boolean isClient){
+    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient){
         return false;
     }
 }

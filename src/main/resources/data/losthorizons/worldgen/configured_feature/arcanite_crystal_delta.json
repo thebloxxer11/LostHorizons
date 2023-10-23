@@ -1,0 +1,27 @@
+{
+    "type": "minecraft:delta_feature",
+    "config": {
+        "contents": {
+            "Name": "losthorizons:arcanite_sand",
+            "properties": {}
+        },
+        "rim": {
+            "Name": "losthorizons:arcanite_block",
+            "properties": {}      
+        },
+        "size": {
+            "type": "uniform",
+            "value": {
+                "min_inclusive": 0,
+                "max_inclusive": 15
+            }
+        },
+        "rim_size": {
+            "type": "uniform",
+            "value": {
+                "min_inclusive": 1,
+                "max_inclusive": 15
+            }
+        }  
+    }
+}

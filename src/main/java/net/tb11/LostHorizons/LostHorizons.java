@@ -7,8 +7,10 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.Block;
 import net.minecraft.block.CropBlock;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.AliasedBlockItem;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -23,6 +25,7 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.gen.feature.PlacedFeature;
+import net.tb11.LostHorizons.block_entities.CrystallineSandBlockEntity;
 import net.tb11.LostHorizons.blocks.CrystallineSand;
 import net.tb11.LostHorizons.crops.ArcaniteCrystal;
 import net.tb11.LostHorizons.crops.CrylatiteCrystal;
@@ -88,7 +91,6 @@ public class LostHorizons implements ModInitializer {
 	public static final CrystallineSand Noxite_Sand = new CrystallineSand(FabricBlockSettings.create().ticksRandomly().hardness(2.0f).sounds(BlockSoundGroup.SAND), Noxite_Crystal);
 	public static final CrystallineSand Shoctite_Sand = new CrystallineSand(FabricBlockSettings.create().ticksRandomly().hardness(2.0f).sounds(BlockSoundGroup.SAND), Shoctite_Crystal);
 	
-	
 	//Items
 	//Materials - Raw
 	public static final Item Tin_Raw = new Item(new FabricItemSettings()); //Tin Ore Item
@@ -125,7 +127,11 @@ public class LostHorizons implements ModInitializer {
 	public static final Item Shoctite_Seed = new AliasedBlockItem(Shoctite_Crystal, new FabricItemSettings());
 
 	//Block Entities
-
+	public static final BlockEntityType<CrystallineSandBlockEntity> CRYSTAL_SAND_BLOCK_ENTITY = Registry.register(
+        Registries.BLOCK_ENTITY_TYPE,
+        new Identifier("losthorizons", "crystal_sand_block_entity"),
+        FabricBlockEntityTypeBuilder.create(CrystallineSandBlockEntity::new, Arcanite_Sand, Nullix_Sand, Pyrotite_Sand, Crylatite_Sand, Noxite_Sand, Shoctite_Sand).build()
+    );
 
 	//Worldgen - Biome Mod API - EXP
 	//Ores
@@ -255,11 +261,5 @@ public class LostHorizons implements ModInitializer {
 			Registry.register(Registries.ITEM_GROUP, new Identifier("losthorizons", "hybrid_group"), LHHYB_GROUP);
 			Registry.register(Registries.ITEM_GROUP, new Identifier("losthorizons", "techna_group"), LHTEC_GROUP);
 			Registry.register(Registries.ITEM_GROUP, new Identifier("losthorizons", "arcana_group"), LHARC_GROUP);
-
-		//Crystal Bubbles
-			//Registry.register(Registry.FEATURE, new Identifier("losthorizons","crystal_bubble"), CRYSTALBUBBLE);
-			//Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier("losthorizons", "arcanite_bubble"), CON_ARCANITE_BUBBLE);
-			//Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier("losthorizons", "arcanite_bubble"), GEN_ARCANITE_BUBBLE);
-			//BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_STRUCTURES, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier("losthorizons", "arcanite_bubble")));
 		}
 }

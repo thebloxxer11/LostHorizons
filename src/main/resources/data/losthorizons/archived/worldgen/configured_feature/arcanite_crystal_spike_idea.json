@@ -1,0 +1,58 @@
+{
+    "type": "minecraft:dripstone_cluster",
+    "config": {
+        "state_provider": {
+            "fallback": "minecraft:sand",
+            "rules": {
+                "if_true": "true",
+                "then": {
+                    "type": "simple_state_provider",
+                    "state": {
+                        "name": "losthorizons:arcanite_block"
+                    }
+                }
+            }
+        },
+        "floor_to_ceiling_search_range": 128,
+        "height": {
+            "type": "uniform",
+            "value": {
+                "min_inclusive": 16,
+                "max_inclusive": 64
+            }
+        },
+        "radius": {
+            "type": "uniform",
+            "value": {
+                "min_inclusive": 5,
+                "max_inclusive": 15
+            }
+        },
+        "max_stalagmite_stalactite_height_diff": 32,
+        "height_deviation": 16,
+        "dripstone_block_layer_thickness": {
+            "type": "uniform",
+            "value": {
+                "min_inclusive": 1,
+                "max_inclusive": 4
+            }
+        },
+        "density": {
+            "type": "uniform",
+            "value": {
+                "min_inclusive": 0.5,
+                "max_inclusive": 2.0
+            }
+        },
+        "wetness": 0,
+        "chance_of_dripstone_column_at_max_distance_from_center": {
+            "type": "uniform",
+            "value": {
+                "min_inclusive": 0.0,
+                "max_inclusive": 1.0
+            }
+        },
+        "max_distance_from_edge_affecting_chance_of_dripstone_column": 32,
+        "max_distance_from_center_affecting_height_bias": 32
+    }
+}
