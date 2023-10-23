@@ -67,5 +67,7 @@
     "block.losthorizons.pyrotite_block": "Block of Pyrotite",
     "block.losthorizons.crylatite_block": "Block of Crylatite",
     "block.losthorizons.noxite_block": "Block of Noxite",
-    "block.losthorizons.shoctite_block": "Block of Shoctite"
+    "block.losthorizons.shoctite_block": "Block of Shoctite",
+
+    "biome.losthorizons.arcanite_caverns": "Arcanite Caverns"
 }
