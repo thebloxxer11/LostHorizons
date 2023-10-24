@@ -1,6 +1,6 @@
 {
     "replace": false,
     "values": [
-      "#minecraft:has_structure/end_city"
+      "#losthorizons:cave_biomes"
     ]
   }
