@@ -2,20 +2,11 @@
     "feature": "losthorizons:arcanite_crystal_delta",
     "placement": [
         {
-        "type": "block_predicate_filter",
-        "predicate": {
-            "type": "any_of",
-            "predicates": [
-                    {
-                        "type": "matching_block_tag",
-                        "tag": "minecraft:stone_ore_replaceables"
-                    },
-                    {
-                        "type": "matching_block_tag",
-                        "tag": "minecraft:deepslate_ore_replaceables"
-                    }
-                ]
-            }
+          "type": "minecraft:count_on_every_layer",
+          "count": 40
+        },
+        {
+          "type": "minecraft:biome"
         }
-    ]
+      ]
 }

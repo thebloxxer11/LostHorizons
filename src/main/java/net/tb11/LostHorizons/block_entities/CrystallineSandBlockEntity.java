@@ -11,18 +11,15 @@ import net.tb11.LostHorizons.LostHorizons;
 import net.tb11.LostHorizons.blocks.CrystallineSand;
 
 public class CrystallineSandBlockEntity extends BlockEntity{
-
     public CrystallineSandBlockEntity(BlockPos pos, BlockState state) {
         super(LostHorizons.CRYSTAL_SAND_BLOCK_ENTITY, pos, state);
     }
-    public static void tick(World world, BlockPos pos, BlockState state, CrystallineSandBlockEntity be, Random random){
+    public static void tick(World world, BlockPos pos, BlockState state, CrystallineSandBlockEntity be){
         BlockPos blockAbovePos = new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ());
-            if (world.getBlockState(blockAbovePos).getBlock() == Blocks.AIR) {
-                if (random.nextInt(24) == 0) {
+            if (Random.create().nextInt(65536) == 0) {
+                if (world.getBlockState(blockAbovePos).getBlock() == Blocks.AIR) {
                     Block.replace(Blocks.AIR.getDefaultState(), ((CrystallineSand) state.getBlock()).getCrystalType().getDefaultState(), world, blockAbovePos, 0);
                 }
             }
     }
-
-
 }

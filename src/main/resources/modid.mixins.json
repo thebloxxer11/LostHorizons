@@ -7,7 +7,6 @@
     "LostHorizonsMixin"
   ],
   "client": [
-    "LostHorizonsMixinClient"
   ],
   "injectors": {
     "defaultRequire": 1
