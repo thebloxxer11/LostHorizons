@@ -4,7 +4,7 @@
   "version": "0.0.0",
 
   "name": "Lost Horizons",
-  "description": "Lost Horizons is a science fiction/fantasy mod that bridges the scientific and the arcane in a whole new perspective. Additional Credits to those I referenced during the making of this mod: Apollounknowndev for Cave Biomes; OreCruncher (Dynamic Surroundings) for Sounds",
+  "description": "Lost Horizons is a science fiction/fantasy mod that bridges the scientific and the arcane in a whole new perspective. Additional Credits to those I referenced during the making of this mod: Apollounknowndev and Stardust for Cave Biomes; OreCruncher (Dynamic Surroundings) for Sounds",
   "authors": [
     "thebloxxer11"
   ],
@@ -23,6 +23,9 @@
     ],
     "client": [
       "net.tb11.LostHorizons.LostHorizonsClient"
+    ],
+    "fabric-datagen": [
+      "com.tb11.LostHorizons.LostHorizonsDataGen"
     ]
   },
   "mixins": [
@@ -30,9 +33,9 @@
   ],
 
   "depends": {
-    "fabricloader": ">=0.14.23",
+    "fabricloader": ">=0.14.24",
     "fabric-api": "*",
-    "minecraft": "1.20.x",
+    "minecraft": "1.20.2",
     "java": ">=17"
   },
   "suggests": {
