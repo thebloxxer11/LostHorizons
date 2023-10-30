@@ -5,8 +5,6 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.minecraft.client.render.RenderLayer;
-// import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-// import net.minecraft.client.render.RenderLayer;
 @Environment(value=EnvType.CLIENT)
 public class LostHorizonsClient implements ClientModInitializer {
     // TODO: This code is giving me hell, compile failure
