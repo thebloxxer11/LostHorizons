@@ -10,9 +10,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 
 @Mixin(MinecraftClient.class)
-public class LostHorizonsMixinClient {
+public class LostHorizonsClientMixin {
 	@Inject(at = @At("HEAD"), method = "run")
 	private void init(CallbackInfo info) {
-		LostHorizons.LOGGER.info("Mixin-Logger go brrrr");
+		//LostHorizons.LOGGER.info("Mixin-Logger go brrrr");
 	}
 }
