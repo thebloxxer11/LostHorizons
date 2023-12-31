@@ -29,7 +29,7 @@
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "losthorizons.mixins.json"
   ],
 
   "depends": {
