@@ -1,13 +1,11 @@
 {
   "required": true,
-  "minVersion": "0.8",
   "package": "net.tb11.LostHorizons.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "LostHorizonsMixin"
   ],
   "client": [
-    "LostHorizonsClientMixin"
   ],
   "injectors": {
     "defaultRequire": 1

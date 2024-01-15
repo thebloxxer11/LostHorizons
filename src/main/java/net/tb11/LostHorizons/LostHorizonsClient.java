@@ -2,7 +2,7 @@ package net.tb11.LostHorizons;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.*;
 
 public class LostHorizonsClient implements ClientModInitializer {
     // TODO: This code is giving me hell, compile failure

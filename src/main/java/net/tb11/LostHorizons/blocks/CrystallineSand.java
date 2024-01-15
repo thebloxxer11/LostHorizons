@@ -5,7 +5,6 @@ import com.mojang.serialization.MapCodec;
 
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
@@ -16,12 +15,12 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.tb11.LostHorizons.LostHorizons;
 import net.tb11.LostHorizons.block_entities.CrystallineSandBlockEntity;
-import net.tb11.LostHorizons.block_properties.BlockProperty;
 
 public class CrystallineSand extends BlockWithEntity {
-    public static final MapCodec<CrystallineSand> CODEC = CrystallineSand.createCodec(CrystallineSand::new);
-    public static final BlockProperty crystal = BlockProperty.crystal;
-    public CrystallineSand(AbstractBlock.Settings settings) {
+    private static Block crystal;
+    public static final MapCodec<CrystallineSand> CODEC = CrystallineSand.createCodec(settings -> new CrystallineSand((AbstractBlock.Settings)settings, (Block)crystal));
+
+    public CrystallineSand(AbstractBlock.Settings settings, Block crystal) {
         super(settings);
     }
     @Override
