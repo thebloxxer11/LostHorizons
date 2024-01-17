@@ -1,12 +1,13 @@
 package net.tb11.LostHorizons;
 
+import net.tb11.LostHorizons.blocks.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-//import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.Block;
@@ -27,7 +28,6 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.gen.feature.PlacedFeature;
 import net.tb11.LostHorizons.block_entities.CrystallineSandBlockEntity;
-import net.tb11.LostHorizons.blocks.CrystallineSand;
 import net.tb11.LostHorizons.crops.ArcaniteCrystal;
 import net.tb11.LostHorizons.crops.CrylatiteCrystal;
 import net.tb11.LostHorizons.crops.NoxiteCrystal;
@@ -39,7 +39,7 @@ public class LostHorizons implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
 	// It is considered best practice to use your mod id as the logger's name.
 	// That way, it's clear which mod wrote info, warnings, and errors.
-	public static final Logger LOGGER = LoggerFactory.getLogger("modid");
+	public static final Logger LOGGER = LoggerFactory.getLogger("losthorizons");
 	//Group Registries
 	//Materials
 	public static final ItemGroup LHMAT_GROUP = FabricItemGroup.builder().icon(()-> new ItemStack(Items.BARRIER)).displayName(Text.translatable("itemGroup.losthorizons.materials")).build();
@@ -85,12 +85,12 @@ public class LostHorizons implements ModInitializer {
 	public static final CropBlock Noxite_Crystal = new NoxiteCrystal(FabricBlockSettings.create().nonOpaque().noCollision().ticksRandomly().hardness(1.0f).sounds(BlockSoundGroup.AMETHYST_CLUSTER));
 	public static final CropBlock Shoctite_Crystal = new ShoctiteCrystal(FabricBlockSettings.create().nonOpaque().noCollision().ticksRandomly().hardness(1.0f).sounds(BlockSoundGroup.AMETHYST_CLUSTER));
 	//Crystalline Sand
-	public static final CrystallineSand Arcanite_Sand = new CrystallineSand(FabricBlockSettings.create().ticksRandomly().hardness(2.0f).sounds(BlockSoundGroup.SAND), Arcanite_Crystal);
-	public static final CrystallineSand Nullix_Sand = new CrystallineSand(FabricBlockSettings.create().ticksRandomly().hardness(2.0f).sounds(BlockSoundGroup.SAND), Nullix_Crystal);
-	public static final CrystallineSand Pyrotite_Sand = new CrystallineSand(FabricBlockSettings.create().ticksRandomly().hardness(2.0f).sounds(BlockSoundGroup.SAND), Pyrotite_Crystal);
-	public static final CrystallineSand Crylatite_Sand = new CrystallineSand(FabricBlockSettings.create().ticksRandomly().hardness(2.0f).sounds(BlockSoundGroup.SAND), Crylatite_Crystal);
-	public static final CrystallineSand Noxite_Sand = new CrystallineSand(FabricBlockSettings.create().ticksRandomly().hardness(2.0f).sounds(BlockSoundGroup.SAND), Noxite_Crystal);
-	public static final CrystallineSand Shoctite_Sand = new CrystallineSand(FabricBlockSettings.create().ticksRandomly().hardness(2.0f).sounds(BlockSoundGroup.SAND), Shoctite_Crystal);
+	public static final ArcaniteCrystallineSand Arcanite_Sand = new ArcaniteCrystallineSand(FabricBlockSettings.create().ticksRandomly().hardness(2.0f).sounds(BlockSoundGroup.SAND));
+	public static final NullixCrystallineSand Nullix_Sand = new NullixCrystallineSand(FabricBlockSettings.create().ticksRandomly().hardness(2.0f).sounds(BlockSoundGroup.SAND));
+	public static final PyrotiteCrystallineSand Pyrotite_Sand = new PyrotiteCrystallineSand(FabricBlockSettings.create().ticksRandomly().hardness(2.0f).sounds(BlockSoundGroup.SAND));
+	public static final CrylatiteCrystallineSand Crylatite_Sand = new CrylatiteCrystallineSand(FabricBlockSettings.create().ticksRandomly().hardness(2.0f).sounds(BlockSoundGroup.SAND));
+	public static final NoxiteCrystallineSand Noxite_Sand = new NoxiteCrystallineSand(FabricBlockSettings.create().ticksRandomly().hardness(2.0f).sounds(BlockSoundGroup.SAND));
+	public static final ShoctiteCrystallineSand Shoctite_Sand = new ShoctiteCrystallineSand(FabricBlockSettings.create().ticksRandomly().hardness(2.0f).sounds(BlockSoundGroup.SAND));
 	
 	//Items
 	//Materials - Raw
@@ -258,79 +258,74 @@ public class LostHorizons implements ModInitializer {
 			Registry.register(Registries.BLOCK, new Identifier("losthorizons", "shoctite_crystal"), Shoctite_Crystal);
 		//Adding to Groups
 		// //Material Items
-		// addToGroupInPost(Tin_Raw, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Tin_Ref, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Lithium_Raw, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Lithium_Ref, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Uranium_Raw, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Uranium_Ref, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Aluminum_Raw, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Aluminum_Ref, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Hexatium_Raw, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Hexatium_Ref, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Rubber_Raw, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Rubber, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Rubber_Ref, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Galena_Raw, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Lead_Ref, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Silver_Ref, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Sulfur, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Steel_Ingot, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Arcanite_Shard, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Nullix_Shard, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Pyrotite_Shard, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Crylatite_Shard, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Noxite_Shard, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Shoctite_Shard, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Arcanite_Seed, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Nullix_Seed, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Pyrotite_Seed, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Crylatite_Seed, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Noxite_Seed, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Shoctite_Seed, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// //Material Blocks
-		// addToGroupInPost(Arcanite_Sand.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Nullix_Sand.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Pyrotite_Sand.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Crylatite_Sand.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Noxite_Sand.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Shoctite_Sand.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Arcanite_Crystal.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Nullix_Crystal.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Pyrotite_Crystal.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Crylatite_Crystal.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Noxite_Crystal.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Shoctite_Crystal.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Arcanite_Block.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Nullix_Block.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Pyrotite_Block.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Crylatite_Block.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Noxite_Block.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Shoctite_Block.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Tin_Block.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Lithium_Block.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Uranium_Block.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Lead_Block.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Silver_Block.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Aluminum_Block.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Hexatium_Block.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Tin_Ore.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Tin_Ore_Deep.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Lithium_Ore.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Lithium_Ore_Deep.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Uranium_Ore.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Hexatium_Ore.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Aluminum_Ore.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Galena_Ore.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Pyrotite_Sand.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Crylatite_Sand.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Noxite_Sand.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		// addToGroupInPost(Shoctite_Sand.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		
-		
+		 addToGroupInPost(Tin_Raw, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Tin_Ref, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Lithium_Raw, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Lithium_Ref, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Uranium_Raw, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Uranium_Ref, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Aluminum_Raw, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Aluminum_Ref, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Hexatium_Raw, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Hexatium_Ref, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Rubber_Raw, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Rubber, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Rubber_Ref, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Galena_Raw, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Lead_Ref, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Silver_Ref, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Sulfur, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Steel_Ingot, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Arcanite_Shard, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Nullix_Shard, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Pyrotite_Shard, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Crylatite_Shard, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Noxite_Shard, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Shoctite_Shard, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Arcanite_Seed, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Nullix_Seed, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Pyrotite_Seed, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Crylatite_Seed, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Noxite_Seed, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Shoctite_Seed, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 //Material Blocks
+		 addToGroupInPost(Arcanite_Sand.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Nullix_Sand.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Pyrotite_Sand.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Crylatite_Sand.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Noxite_Sand.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Shoctite_Sand.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Arcanite_Crystal.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Nullix_Crystal.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Pyrotite_Crystal.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Crylatite_Crystal.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Noxite_Crystal.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Shoctite_Crystal.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Arcanite_Block.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Nullix_Block.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Pyrotite_Block.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Crylatite_Block.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Noxite_Block.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Shoctite_Block.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Tin_Block.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Lithium_Block.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Uranium_Block.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Lead_Block.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Silver_Block.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Aluminum_Block.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Hexatium_Block.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Tin_Ore.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Tin_Ore_Deep.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Lithium_Ore.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Lithium_Ore_Deep.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Uranium_Ore.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Hexatium_Ore.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Aluminum_Ore.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 addToGroupInPost(Galena_Ore.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		 LostHorizons.LOGGER.info("Serverside Loaded");
 		}
 
-	// public void addToGroupInPost(Item item, RegistryKey<ItemGroup> group){
-	// 	ItemGroupEvents.modifyEntriesEvent(group).register(content -> content.add(item));
-	// }
+	 public void addToGroupInPost(Item item, RegistryKey<ItemGroup> group){
+	 	ItemGroupEvents.modifyEntriesEvent(group).register(content -> content.add(item));
+	 }
 }

@@ -1,6 +1,6 @@
 {
     "replace": false,
     "values": [
-      "#losthorizons:cave_biomes"
+      "losthorizons:arcanite_caverns"
     ]
   }

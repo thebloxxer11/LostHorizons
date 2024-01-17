@@ -8,7 +8,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import net.tb11.LostHorizons.LostHorizons;
-import net.tb11.LostHorizons.blocks.CrystallineSand;
+import net.tb11.LostHorizons.blocks.AbstractCrystalSand;
+import net.tb11.LostHorizons.blocks.ArcaniteCrystallineSand;
 
 public class CrystallineSandBlockEntity extends BlockEntity{
     public CrystallineSandBlockEntity(BlockPos pos, BlockState state) {
@@ -18,7 +19,7 @@ public class CrystallineSandBlockEntity extends BlockEntity{
         BlockPos blockAbovePos = new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ());
             if (Random.create().nextInt(65536) == 0) {
                 if (world.getBlockState(blockAbovePos).getBlock() == Blocks.AIR) {
-                    Block.replace(Blocks.AIR.getDefaultState(), ((CrystallineSand) state.getBlock()).getCrystalType().getDefaultState(), world, blockAbovePos, 0);
+                    Block.replace(Blocks.AIR.getDefaultState(), ((AbstractCrystalSand) state.getBlock()).getCrystalType().getDefaultState(), world, blockAbovePos, 0);
                 }
             }
     }

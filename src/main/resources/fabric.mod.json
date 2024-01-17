@@ -25,11 +25,15 @@
       "net.tb11.LostHorizons.LostHorizonsClient"
     ],
     "fabric-datagen": [
-      "com.tb11.LostHorizons.LostHorizonsDataGen"
+      "net.tb11.LostHorizons.LostHorizonsDataGen"
     ]
   },
   "mixins": [
-    "losthorizons.mixins.json"
+    "losthorizons.mixins.json",
+    {
+      "config": "losthorizons.client.mixins.json",
+      "environment": "client"
+    }
   ],
 
   "depends": {

@@ -1,9 +1,5 @@
 package net.tb11.LostHorizons.blocks;
 
-
-import com.mojang.serialization.MapCodec;
-
-import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
@@ -16,32 +12,30 @@ import net.minecraft.world.World;
 import net.tb11.LostHorizons.LostHorizons;
 import net.tb11.LostHorizons.block_entities.CrystallineSandBlockEntity;
 
-public class CrystallineSand extends BlockWithEntity {
-    private static Block crystal;
-    public static final MapCodec<CrystallineSand> CODEC = CrystallineSand.createCodec(settings -> new CrystallineSand((AbstractBlock.Settings)settings, (Block)crystal));
-
-    public CrystallineSand(AbstractBlock.Settings settings, Block crystal) {
+public abstract class AbstractCrystalSand extends BlockWithEntity {
+    public Block crystalType;
+    public AbstractCrystalSand(Settings settings, Block crystal) {
         super(settings);
+//        setCrystalType(crystal);
+        crystalType = crystal;
     }
-    @Override
-    public BlockRenderType getRenderType(BlockState state) {
-        return BlockRenderType.MODEL;
-    }
-    @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return validateTicker(type, LostHorizons.CRYSTAL_SAND_BLOCK_ENTITY, (world1, pos, state1, be) -> CrystallineSandBlockEntity.tick(world1, pos, state1, be));
-    }
-
+//    public void setCrystalType(Block crystal){
+//        AbstractCrystalSand.crystal = crystal;
+//    }
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new CrystallineSandBlockEntity(pos, state);
     }
 
-    public Block getCrystalType(){
-        return crystal;
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
+        return validateTicker(type, LostHorizons.CRYSTAL_SAND_BLOCK_ENTITY, (world1, pos, state1, be) -> CrystallineSandBlockEntity.tick(world1, pos, state1, be));
     }
-    protected MapCodec<? extends BlockWithEntity> getCodec() {
-        return CODEC;
+    @Override
+    public BlockRenderType getRenderType(BlockState state) {
+        return BlockRenderType.MODEL;
     }
-
+    public Block getCrystalType() {
+        return crystalType;
+    }
 }
