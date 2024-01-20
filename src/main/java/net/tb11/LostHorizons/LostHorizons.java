@@ -40,6 +40,7 @@ public class LostHorizons implements ModInitializer {
 	// It is considered best practice to use your mod id as the logger's name.
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final Logger LOGGER = LoggerFactory.getLogger("losthorizons");
+	public static final String MOD_ID = "losthorizons";
 	//Group Registries
 	//Materials
 	public static final ItemGroup LHMAT_GROUP = FabricItemGroup.builder().icon(()-> new ItemStack(Items.BARRIER)).displayName(Text.translatable("itemGroup.losthorizons.materials")).build();

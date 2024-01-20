@@ -1,7 +1,6 @@
  package net.tb11.LostHorizons;
 
  import net.fabricmc.api.ClientModInitializer;
- // TODO: These two imports are giving me pain, compile failure: Does not exist when it does
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.minecraft.client.render.RenderLayer;
 
