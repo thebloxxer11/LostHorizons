@@ -1,9 +1,5 @@
 package net.tb11.LostHorizons;
 
-import net.tb11.LostHorizons.blocks.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
@@ -13,27 +9,18 @@ import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityT
 import net.minecraft.block.Block;
 import net.minecraft.block.CropBlock;
 import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.item.AliasedBlockItem;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import net.minecraft.world.gen.feature.PlacedFeature;
 import net.tb11.LostHorizons.block_entities.CrystallineSandBlockEntity;
-import net.tb11.LostHorizons.crops.ArcaniteCrystal;
-import net.tb11.LostHorizons.crops.CrylatiteCrystal;
-import net.tb11.LostHorizons.crops.NoxiteCrystal;
-import net.tb11.LostHorizons.crops.NullixCrystal;
-import net.tb11.LostHorizons.crops.PyrotiteCrystal;
-import net.tb11.LostHorizons.crops.ShoctiteCrystal;
+import net.tb11.LostHorizons.blocks.*;
+import net.tb11.LostHorizons.crops.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class LostHorizons implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
@@ -134,15 +121,6 @@ public class LostHorizons implements ModInitializer {
         new Identifier("losthorizons", "crystal_sand_block_entity"),
         FabricBlockEntityTypeBuilder.create(CrystallineSandBlockEntity::new, Arcanite_Sand, Nullix_Sand, Pyrotite_Sand, Crylatite_Sand, Noxite_Sand, Shoctite_Sand).build()
     );
-
-	//Worldgen - Biome Mod API - EXP
-	//Ores
-	public static final RegistryKey<PlacedFeature> TIN_ORE_PLACED_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier("losthorizons", "tin_ore"));
-	public static final RegistryKey<PlacedFeature> LITHIUM_ORE_PLACED_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier("losthorizons", "lithium_ore"));
-	public static final RegistryKey<PlacedFeature> ALUM_ORE_PLACED_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier("losthorizons", "aluminum_ore"));
-	public static final RegistryKey<PlacedFeature> GALENA_ORE_PLACED_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier("losthorizons", "galena_ore"));
-	public static final RegistryKey<PlacedFeature> URANIUM_ORE_PLACED_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier("losthorizons", "uranium_ore"));
-	public static final RegistryKey<PlacedFeature> HEXATIUM_ORE_PLACED_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier("losthorizons", "hexatium_ore"));
 
 	@Override
 	public void onInitialize() {
