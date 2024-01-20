@@ -1,6 +1,8 @@
 package net.tb11.LostHorizons;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
+import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -13,9 +15,12 @@ import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.minecraft.world.gen.GenerationStep;
+import net.minecraft.world.gen.feature.PlacedFeature;
 import net.tb11.LostHorizons.block_entities.CrystallineSandBlockEntity;
 import net.tb11.LostHorizons.blocks.*;
 import net.tb11.LostHorizons.crops.*;
@@ -121,6 +126,15 @@ public class LostHorizons implements ModInitializer {
         new Identifier("losthorizons", "crystal_sand_block_entity"),
         FabricBlockEntityTypeBuilder.create(CrystallineSandBlockEntity::new, Arcanite_Sand, Nullix_Sand, Pyrotite_Sand, Crylatite_Sand, Noxite_Sand, Shoctite_Sand).build()
     );
+
+	//Minor Worldgen
+	//Ores
+	public static final RegistryKey<PlacedFeature> TIN_ORE_PLACED_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier("losthorizons", "tin_ore"));
+	public static final RegistryKey<PlacedFeature> LITHIUM_ORE_PLACED_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier("losthorizons", "lithium_ore"));
+	public static final RegistryKey<PlacedFeature> ALUM_ORE_PLACED_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier("losthorizons", "aluminum_ore"));
+	public static final RegistryKey<PlacedFeature> GALENA_ORE_PLACED_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier("losthorizons", "galena_ore"));
+	public static final RegistryKey<PlacedFeature> URANIUM_ORE_PLACED_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier("losthorizons", "uranium_ore"));
+	public static final RegistryKey<PlacedFeature> HEXATIUM_ORE_PLACED_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier("losthorizons", "hexatium_ore"));
 
 	@Override
 	public void onInitialize() {
@@ -301,6 +315,12 @@ public class LostHorizons implements ModInitializer {
 		 addToGroupInPost(Hexatium_Ore.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
 		 addToGroupInPost(Aluminum_Ore.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
 		 addToGroupInPost(Galena_Ore.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
+		BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, TIN_ORE_PLACED_KEY);
+		BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, LITHIUM_ORE_PLACED_KEY);
+		BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, ALUM_ORE_PLACED_KEY);
+		BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, GALENA_ORE_PLACED_KEY);
+		BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, URANIUM_ORE_PLACED_KEY);
+		BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, HEXATIUM_ORE_PLACED_KEY);
 		 LostHorizons.LOGGER.info("Serverside Loaded");
 		}
 
