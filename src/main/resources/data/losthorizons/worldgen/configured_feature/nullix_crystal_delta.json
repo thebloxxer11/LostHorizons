@@ -1,0 +1,27 @@
+{
+    "type": "minecraft:delta_feature",
+    "config": {
+        "contents": {
+            "Name": "losthorizons:nullix_sand",
+            "properties": {}
+        },
+        "rim": {
+            "Name": "losthorizons:nullix_block",
+            "properties": {}      
+        },
+        "size": {
+            "type": "uniform",
+            "value": {
+                "min_inclusive": 0,
+                "max_inclusive": 7
+            }
+        },
+        "rim_size": {
+            "type": "uniform",
+            "value": {
+                "min_inclusive": 1,
+                "max_inclusive": 7
+            }
+        }  
+    }
+}
