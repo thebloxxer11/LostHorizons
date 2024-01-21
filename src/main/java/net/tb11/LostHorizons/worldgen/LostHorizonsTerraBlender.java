@@ -10,6 +10,11 @@ public class LostHorizonsTerraBlender implements TerraBlenderApi {
     public void onTerraBlenderInitialized()
     {
         // WorldGen code goes here.
-        Regions.register(new CaveBiomeRegion(new Identifier(LostHorizons.MOD_ID, "overworld_1"), 2));
+        Regions.register(new ArcaniteBiomeRegion(new Identifier(LostHorizons.MOD_ID, "arcanite_caverns"), 2));
+        Regions.register(new NullixBiomeRegion(new Identifier(LostHorizons.MOD_ID, "nullix_caverns"), 2));
+        Regions.register(new PyrotiteBiomeRegion(new Identifier(LostHorizons.MOD_ID, "pyrotite_caverns"), 2));
+        Regions.register(new CrylatiteBiomeRegion(new Identifier(LostHorizons.MOD_ID, "crylatite_caverns"), 2));
+        Regions.register(new NoxiteBiomeRegion(new Identifier(LostHorizons.MOD_ID, "noxite_caverns"), 2));
+        Regions.register(new ShoctiteBiomeRegion(new Identifier(LostHorizons.MOD_ID, "shoctite_caverns"), 2));
     }
 }

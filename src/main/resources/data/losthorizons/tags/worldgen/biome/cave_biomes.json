@@ -1,6 +1,11 @@
 {
     "replace": false,
     "values": [
-        "losthorizons:arcanite_caverns"
+        "losthorizons:arcanite_caverns",
+        "losthorizons:nullix_caverns",
+        "losthorizons:pyrotite_caverns",
+        "losthorizons:crylatite_caverns",
+        "losthorizons:noxite_caverns",
+        "losthorizons:shoctite_caverns"
     ]
 }

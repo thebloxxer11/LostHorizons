@@ -122,8 +122,7 @@
         "minecraft:lake_lava_surface"
       ],
       [
-        "minecraft:amethyst_geode",
-        "minecraft:large_dripstone"
+        "minecraft:amethyst_geode"
       ],
       [
         "minecraft:monster_room",
@@ -163,10 +162,7 @@
         "minecraft:disk_clay",
         "minecraft:disk_gravel"
       ],
-      [
-        "minecraft:dripstone_cluster",
-        "minecraft:pointed_dripstone"
-      ],
+      [],
       [
         "minecraft:spring_water",
         "minecraft:spring_lava"

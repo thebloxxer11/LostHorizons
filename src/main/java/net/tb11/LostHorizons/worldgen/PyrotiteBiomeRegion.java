@@ -14,9 +14,9 @@ import terrablender.api.VanillaParameterOverlayBuilder;
 
 import java.util.function.Consumer;
 
-public class CaveBiomeRegion extends Region {
+public class PyrotiteBiomeRegion extends Region {
 
-    public CaveBiomeRegion(Identifier name, int weight) {
+    public PyrotiteBiomeRegion(Identifier name, int weight) {
         super(name, RegionType.OVERWORLD, weight);
     }
 
@@ -33,7 +33,7 @@ public class CaveBiomeRegion extends Region {
                 ParameterUtils.Weirdness.span(ParameterUtils.Weirdness.MID_SLICE_NORMAL_ASCENDING, ParameterUtils.Weirdness.MID_SLICE_NORMAL_DESCENDING),
                 0L
                 );
-        builder.add(noiseHypercube, LostHorizonBiomes.ARCANITE_CAVERNS);
+        builder.add(noiseHypercube, LostHorizonsBiomes.PYROTITE_CAVERNS);
         builder.build().forEach(mapper);
     }
 }
