@@ -315,12 +315,12 @@ public class LostHorizons implements ModInitializer {
 		 addToGroupInPost(Hexatium_Ore.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
 		 addToGroupInPost(Aluminum_Ore.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
 		 addToGroupInPost(Galena_Ore.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMAT_GROUP).getKey().get());
-		BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, TIN_ORE_PLACED_KEY);
-		BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, LITHIUM_ORE_PLACED_KEY);
-		BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, ALUM_ORE_PLACED_KEY);
-		BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, GALENA_ORE_PLACED_KEY);
-		BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, URANIUM_ORE_PLACED_KEY);
-		BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, HEXATIUM_ORE_PLACED_KEY);
+		 BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, TIN_ORE_PLACED_KEY);
+		 BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, LITHIUM_ORE_PLACED_KEY);
+		 BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, ALUM_ORE_PLACED_KEY);
+		 BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, GALENA_ORE_PLACED_KEY);
+		 BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, URANIUM_ORE_PLACED_KEY);
+		 BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, HEXATIUM_ORE_PLACED_KEY);
 		 LostHorizons.LOGGER.info("Serverside Loaded");
 		}
 
