@@ -16,12 +16,10 @@ public abstract class AbstractCrystalSand extends BlockWithEntity {
     public Block crystalType;
     public AbstractCrystalSand(Settings settings, Block crystal) {
         super(settings);
-//        setCrystalType(crystal);
+
         crystalType = crystal;
     }
-//    public void setCrystalType(Block crystal){
-//        AbstractCrystalSand.crystal = crystal;
-//    }
+
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new CrystallineSandBlockEntity(pos, state);

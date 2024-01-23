@@ -24,6 +24,8 @@ import net.minecraft.world.gen.feature.PlacedFeature;
 import net.tb11.LostHorizons.block_entities.CrystallineSandBlockEntity;
 import net.tb11.LostHorizons.blocks.*;
 import net.tb11.LostHorizons.crops.*;
+import net.tb11.LostHorizons.energy.block_entities.WattConductorBlockEntity;
+import net.tb11.LostHorizons.energy.blocks.WattConductor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -84,7 +86,9 @@ public class LostHorizons implements ModInitializer {
 	public static final CrylatiteCrystallineSand Crylatite_Sand = new CrylatiteCrystallineSand(FabricBlockSettings.create().ticksRandomly().hardness(2.0f).sounds(BlockSoundGroup.SAND));
 	public static final NoxiteCrystallineSand Noxite_Sand = new NoxiteCrystallineSand(FabricBlockSettings.create().ticksRandomly().hardness(2.0f).sounds(BlockSoundGroup.SAND));
 	public static final ShoctiteCrystallineSand Shoctite_Sand = new ShoctiteCrystallineSand(FabricBlockSettings.create().ticksRandomly().hardness(2.0f).sounds(BlockSoundGroup.SAND));
-	
+	//Functional Blocks
+	//Power Network
+	public static final WattConductor Watt_Conductor = new WattConductor(FabricBlockSettings.create().nonOpaque().hardness(4.5f).sounds(BlockSoundGroup.METAL));
 	//Items
 	//Materials - Raw
 	public static final Item Tin_Raw = new Item(new FabricItemSettings()); //Tin Ore Item
@@ -126,6 +130,11 @@ public class LostHorizons implements ModInitializer {
         new Identifier("losthorizons", "crystal_sand_block_entity"),
         FabricBlockEntityTypeBuilder.create(CrystallineSandBlockEntity::new, Arcanite_Sand, Nullix_Sand, Pyrotite_Sand, Crylatite_Sand, Noxite_Sand, Shoctite_Sand).build()
     );
+	public static final BlockEntityType<WattConductorBlockEntity> WATT_CONDUCTOR_BLOCK_ENTITY = Registry.register(
+			Registries.BLOCK_ENTITY_TYPE,
+			new Identifier("losthorizons", "crystal_sand_block_entity"),
+			FabricBlockEntityTypeBuilder.create(WattConductorBlockEntity::new, Watt_Conductor).build()
+	);
 
 	//Minor Worldgen
 	//Ores
