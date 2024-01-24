@@ -1,4 +1,4 @@
-package net.tb11.LostHorizons.energy.blocks;
+package net.tb11.LostHorizons.tralyx_energy.blocks;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.block.AbstractBlock;
@@ -11,11 +11,11 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.tb11.LostHorizons.LostHorizons;
-import net.tb11.LostHorizons.energy.block_entities.WattConductorBlockEntity;
+import net.tb11.LostHorizons.tralyx_energy.block_entities.TralyxConductorBlockEntity;
 
-public class WattConductor extends BlockWithEntity{
-    public static final MapCodec<WattConductor> CODEC = WattConductor.createCodec(settings -> new WattConductor((AbstractBlock.Settings)settings));
-    public WattConductor(Settings settings) {
+public class TralyxConductor extends BlockWithEntity{
+    public static final MapCodec<TralyxConductor> CODEC = TralyxConductor.createCodec(settings -> new TralyxConductor((AbstractBlock.Settings)settings));
+    public TralyxConductor(Settings settings) {
         super(settings);
     }
     @Override
@@ -28,10 +28,10 @@ public class WattConductor extends BlockWithEntity{
     }
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new WattConductorBlockEntity(pos, state);
+        return new TralyxConductorBlockEntity(pos, state);
     }
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return validateTicker(type, LostHorizons.WATT_CONDUCTOR_BLOCK_ENTITY, (world1, pos, state1, be) -> WattConductorBlockEntity.tick(world1, pos, state1, be));
+        return validateTicker(type, LostHorizons.TRALYX_CONDUCTOR_BLOCK_ENTITY, (world1, pos, state1, be) -> TralyxConductorBlockEntity.tick(world1, pos, state1, be));
     }
 }

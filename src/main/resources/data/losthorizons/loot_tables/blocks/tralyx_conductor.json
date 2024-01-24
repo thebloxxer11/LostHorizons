@@ -6,7 +6,7 @@
         "entries": [
           {
             "type": "minecraft:item",
-            "name": "losthorizons:uranium_block"
+            "name": "losthorizons:tralyx_conductor"
           }
         ],
         "conditions": [

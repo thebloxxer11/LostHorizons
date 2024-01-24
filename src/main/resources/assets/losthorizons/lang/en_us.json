@@ -1,13 +1,10 @@
 {
     "itemGroup.losthorizons.materials": "Lost Horizons: Materials",
-    "itemGroup.losthorizons.hybrid": "Lost Horizons: Hybrid",
-    "itemGroup.losthorizons.techna": "Lost Horizons: Techna",
-    "itemGroup.losthorizons.arcana": "Lost Horizons: Arcana",
+    "itemGroup.losthorizons.machines": "Lost Horizons: Tralyx Machines and Constructs",
+    "itemGroup.losthorizons.tools": "Lost Horizons: Tools, Armor, and Weaponry",
     
     "item.losthorizons.tin_raw": "Raw Tin Ore",
     "item.losthorizons.tin_ingot": "Tin Ingot",
-    "item.losthorizons.uranium_raw": "Raw Uranium Ore",
-    "item.losthorizons.uranium_ingot": "Uranium Ingot",
     "item.losthorizons.lithium_raw": "Raw Lithium Ore",
     "item.losthorizons.lithium_ingot": "Lithium Ingot",
     "item.losthorizons.aluminum_raw": "Laterite Ore",
@@ -37,7 +34,6 @@
 
     "block.losthorizons.tin_ore": "Tin Ore",
     "block.losthorizons.tin_ore_deep": "Deepslate Tin Ore",
-    "block.losthorizons.uranium_ore": "Uranium Ore",
     "block.losthorizons.hexatium_ore": "Hexatium Ore",
     "block.losthorizons.lithium_ore": "Lithium Ore",
     "block.losthorizons.lithium_ore_deep": "Deepslate Lithium Ore",
@@ -69,5 +65,12 @@
     "block.losthorizons.noxite_block": "Block of Noxite",
     "block.losthorizons.shoctite_block": "Block of Shoctite",
 
-    "biome.losthorizons.arcanite_caverns": "Arcanite Caverns"
+    "block.losthorizons.tralyx_conductor": "Tralyx Conductor",
+
+    "biome.losthorizons.arcanite_caverns": "Arcanite Caverns",
+    "biome.losthorizons.nullix_caverns": "Nullix Caverns",
+    "biome.losthorizons.pyrotite_caverns": "Pyrotite Caverns",
+    "biome.losthorizons.crylatite_caverns": "Crylatite Caverns",
+    "biome.losthorizons.noxite_caverns": "Noxite Caverns",
+    "biome.losthorizons.shoctite_caverns": "Shoctite Caverns"
 }

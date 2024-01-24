@@ -1,7 +1,7 @@
 {
     "replace": false,
     "values": [
-      "losthorizons:uranium_ore",
+      "losthorizons:tralyx_conductor",
       "losthorizons:lithium_ore",
       "losthorizons:lithium_ore_deep",
       "losthorizons:galena_ore"
