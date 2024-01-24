@@ -1,4 +1,4 @@
-package net.tb11.LostHorizons.tralyx_energy.block_entity_models;
+package net.tb11.LostHorizons;
 
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
