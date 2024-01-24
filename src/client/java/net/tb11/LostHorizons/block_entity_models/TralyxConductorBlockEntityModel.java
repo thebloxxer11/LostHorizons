@@ -11,14 +11,16 @@ import net.minecraft.item.Items;
 import net.minecraft.util.math.RotationAxis;
 import net.tb11.LostHorizons.tralyx_energy.block_entities.TralyxConductorBlockEntity;
 
+import java.util.Objects;
+
 public class TralyxConductorBlockEntityModel implements BlockEntityRenderer<TralyxConductorBlockEntity> {
-    private static ItemStack crystal = new ItemStack(Items.AMETHYST_SHARD, 1);
+    private static final ItemStack crystal = new ItemStack(Items.AMETHYST_SHARD, 1);
     public TralyxConductorBlockEntityModel(BlockEntityRendererFactory.Context ctx){
     }
     @Override
     public void render(TralyxConductorBlockEntity entity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
         matrices.push();
-        matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees((entity.getWorld().getTime() + tickDelta)*4.0f));
+        matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees((Objects.requireNonNull(entity.getWorld()).getTime() + tickDelta)*4.0f));
         MinecraftClient.getInstance().getItemRenderer().renderItem(crystal, ModelTransformationMode.GROUND, light, overlay, matrices, vertexConsumers, entity.getWorld(), 0);
         matrices.pop();
     }

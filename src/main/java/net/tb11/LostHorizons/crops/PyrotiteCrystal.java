@@ -35,7 +35,7 @@ public class PyrotiteCrystal extends CropBlock{
         return LostHorizons.Pyrotite_Seed;
     }
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return Growth_Stage[(Integer)state.get(this.getAgeProperty())];
+        return Growth_Stage[state.get(this.getAgeProperty())];
     }
 
     @Override

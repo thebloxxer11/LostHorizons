@@ -35,7 +35,7 @@ public class ShoctiteCrystal extends CropBlock{
         return LostHorizons.Shoctite_Seed;
     }
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return Growth_Stage[(Integer)state.get(this.getAgeProperty())];
+        return Growth_Stage[state.get(this.getAgeProperty())];
     }
     
     @Override

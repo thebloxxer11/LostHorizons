@@ -35,7 +35,7 @@ public class NullixCrystal extends CropBlock{
         return LostHorizons.Nullix_Seed;
     }
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return Growth_Stage[(Integer)state.get(this.getAgeProperty())];
+        return Growth_Stage[state.get(this.getAgeProperty())];
     }
     
     @Override

@@ -17,6 +17,8 @@
          BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), LostHorizons.Crylatite_Crystal);
          BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), LostHorizons.Noxite_Crystal);
          BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), LostHorizons.Shoctite_Crystal);
+         //Additional Transparency
+         BlockRenderLayerMap.INSTANCE.putBlock(LostHorizons.Tralyx_Conductor, RenderLayer.getCutout());
 
          BlockEntityRendererFactories.register(LostHorizons.TRALYX_CONDUCTOR_BLOCK_ENTITY, TralyxConductorBlockEntityModel::new);
          LostHorizons.LOGGER.info("Clientside Loaded");

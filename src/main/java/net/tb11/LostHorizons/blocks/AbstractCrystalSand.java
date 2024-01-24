@@ -13,7 +13,7 @@ import net.tb11.LostHorizons.LostHorizons;
 import net.tb11.LostHorizons.block_entities.CrystallineSandBlockEntity;
 
 public abstract class AbstractCrystalSand extends BlockWithEntity {
-    public Block crystalType;
+    public final Block crystalType;
     public AbstractCrystalSand(Settings settings, Block crystal) {
         super(settings);
 
