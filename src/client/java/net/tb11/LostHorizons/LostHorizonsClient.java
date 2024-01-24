@@ -4,6 +4,7 @@
  import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
  import net.minecraft.client.render.RenderLayer;
  import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
+ import net.tb11.LostHorizons.block_entity_models.TralyxConductorBlockEntityModel;
 
  public class LostHorizonsClient implements ClientModInitializer {
 
