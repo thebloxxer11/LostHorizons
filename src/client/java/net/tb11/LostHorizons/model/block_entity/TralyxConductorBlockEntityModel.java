@@ -1,4 +1,4 @@
-package net.tb11.LostHorizons.block_entity_models;
+package net.tb11.LostHorizons.model.block_entity;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.VertexConsumerProvider;
