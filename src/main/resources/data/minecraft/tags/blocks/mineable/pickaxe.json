@@ -3,11 +3,11 @@
     "values": [
       "losthorizons:tin_ore",
       "losthorizons:tin_ore_deep",
-      "losthorizons:uranium_ore",
       "losthorizons:hexatium_ore",
       "losthorizons:lithium_ore",
       "losthorizons:lithium_ore_deep",
       "losthorizons:aluminum_ore",
-      "losthorizons:galena_ore"
+      "losthorizons:galena_ore",
+      "losthorizons:tralyx_conductor"
     ]
   }

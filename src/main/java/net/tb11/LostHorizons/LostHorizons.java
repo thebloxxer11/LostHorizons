@@ -125,7 +125,7 @@ public class LostHorizons implements ModInitializer {
     );
 	public static final BlockEntityType<TralyxConductorBlockEntity> TRALYX_CONDUCTOR_BLOCK_ENTITY = Registry.register(
 			Registries.BLOCK_ENTITY_TYPE,
-			new Identifier("losthorizons", "crystal_sand_block_entity"),
+			new Identifier("losthorizons", "tralyx_conductor_block_entity"),
 			FabricBlockEntityTypeBuilder.create(TralyxConductorBlockEntity::new, Tralyx_Conductor).build()
 	);
 
@@ -245,6 +245,7 @@ public class LostHorizons implements ModInitializer {
 			Registry.register(Registries.BLOCK, new Identifier("losthorizons", "shoctite_crystal"), Shoctite_Crystal);
 		//Technology
 			Registry.register(Registries.BLOCK, new Identifier("losthorizons", "tralyx_conductor"),Tralyx_Conductor);
+			Registry.register(Registries.ITEM, new Identifier("losthorizons", "tralyx_conductor"), new BlockItem(Tralyx_Conductor, new FabricItemSettings()));
 		//Adding to Groups
 		//Material Items
 		 addToGroupInPost(Tin_Raw, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMATR_GROUP).getKey().get());
@@ -307,6 +308,8 @@ public class LostHorizons implements ModInitializer {
 		 addToGroupInPost(Hexatium_Ore.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMATR_GROUP).getKey().get());
 		 addToGroupInPost(Aluminum_Ore.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMATR_GROUP).getKey().get());
 		 addToGroupInPost(Galena_Ore.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMATR_GROUP).getKey().get());
+
+		 addToGroupInPost(Tralyx_Conductor.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMACH_GROUP).getKey().get());
 		 BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, TIN_ORE_PLACED_KEY);
 		 BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, LITHIUM_ORE_PLACED_KEY);
 		 BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, ALUM_ORE_PLACED_KEY);

@@ -25,7 +25,7 @@
                   }
                 }
               ],
-              "name": "losthorizons:uranium_ore"
+              "name": "minecraft:stone"
             },
             {
               "type": "minecraft:item",
@@ -39,7 +39,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "losthorizons:uranium_raw"
+              "name": "minecraft:stone"
             }
           ]
         }
