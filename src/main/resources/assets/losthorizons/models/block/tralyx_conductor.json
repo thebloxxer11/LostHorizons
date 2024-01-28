@@ -1,6 +1,6 @@
 {
-    "parent": "minecraft:block/cross",
+    "parent": "block/cross",
     "textures": {
-      "all": "losthorizons:tralyx_conductor"
+      "cross": "losthorizons:block/tralyx_conductor"
     }
   }
