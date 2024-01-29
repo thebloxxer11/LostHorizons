@@ -1,3 +1,6 @@
 {
-    "parent": "losthorizons:block/tralyx_conductor"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "losthorizons:block/tralyx_conductor"
   }
+}
