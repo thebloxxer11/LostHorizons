@@ -11,7 +11,7 @@ import net.tb11.LostHorizons.LostHorizons;
 import net.tb11.LostHorizons.blocks.AbstractCrystalSand;
 
 public class CrystallineSandBlockEntity extends BlockEntity{
-    private static final Integer RAND_INT = 32768;
+    private static final Integer RAND_INT = 16384;
     public CrystallineSandBlockEntity(BlockPos pos, BlockState state) {
         super(LostHorizons.CRYSTAL_SAND_BLOCK_ENTITY, pos, state);
     }
