@@ -13,7 +13,7 @@ import net.tb11.LostHorizons.LostHorizons;
 import net.tb11.LostHorizons.tralyx_energy.block_entities.TralyxConductorBlockEntity;
 
 public class TralyxConductor extends BlockWithEntity{
-    public static final MapCodec<TralyxConductor> CODEC = TralyxConductor.createCodec(settings -> new TralyxConductor(settings));
+    public static final MapCodec<TralyxConductor> CODEC = TralyxConductor.createCodec(TralyxConductor::new);
     public TralyxConductor(Settings settings) {
         super(settings);
     }
