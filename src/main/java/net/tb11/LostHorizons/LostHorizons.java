@@ -8,7 +8,9 @@ import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.CropBlock;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.*;
@@ -83,7 +85,7 @@ public class LostHorizons implements ModInitializer {
 	public static final ShoctiteCrystallineSand Shoctite_Sand = new ShoctiteCrystallineSand(FabricBlockSettings.create().ticksRandomly().hardness(2.0f).sounds(BlockSoundGroup.SAND));
 	//Functional Blocks
 	//Power Network
-	public static final TralyxConductor Tralyx_Conductor = new TralyxConductor(FabricBlockSettings.create().nonOpaque().hardness(4.5f).sounds(BlockSoundGroup.METAL));
+	public static final TralyxConductor Tralyx_Conductor = new TralyxConductor(FabricBlockSettings.create().nonOpaque().collidable(true).suffocates(Blocks::never).blockVision(Blocks::never).luminance(state->(7)).hardness(4.5f).requiresTool().sounds(BlockSoundGroup.METAL));
 	//Items
 	//Materials - Raw
 	public static final Item Tin_Raw = new Item(new FabricItemSettings()); //Tin Ore Item
