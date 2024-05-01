@@ -25,6 +25,7 @@ import net.minecraft.world.gen.feature.PlacedFeature;
 import net.tb11.LostHorizons.block_entities.CrystallineSandBlockEntity;
 import net.tb11.LostHorizons.blocks.*;
 import net.tb11.LostHorizons.crops.*;
+import net.tb11.LostHorizons.items.tools.EngineersGauntlet;
 import net.tb11.LostHorizons.tralyx_energy.block_entities.TralyxConductorBlockEntity;
 import net.tb11.LostHorizons.tralyx_energy.blocks.TralyxConductor;
 import org.slf4j.Logger;
@@ -117,7 +118,7 @@ public class LostHorizons implements ModInitializer {
 	public static final Item Crylatite_Seed = new AliasedBlockItem(Crylatite_Crystal, new FabricItemSettings());
 	public static final Item Noxite_Seed = new AliasedBlockItem(Noxite_Crystal, new FabricItemSettings());
 	public static final Item Shoctite_Seed = new AliasedBlockItem(Shoctite_Crystal, new FabricItemSettings());
-
+	public static final EngineersGauntlet Engineers_Gauntlet = new EngineersGauntlet(new FabricItemSettings().maxCount(1));
 	//Block Entities
 	public static final BlockEntityType<CrystallineSandBlockEntity> CRYSTAL_SAND_BLOCK_ENTITY = Registry.register(
         Registries.BLOCK_ENTITY_TYPE,
@@ -181,7 +182,7 @@ public class LostHorizons implements ModInitializer {
 			Registry.register(Registries.ITEM, new Identifier("losthorizons", "crylatite_crystal_item"), Crylatite_Seed);
 			Registry.register(Registries.ITEM, new Identifier("losthorizons", "noxite_crystal_item"), Noxite_Seed);
 			Registry.register(Registries.ITEM, new Identifier("losthorizons", "shoctite_crystal_item"), Shoctite_Seed);
-
+			Registry.register(Registries.ITEM, new Identifier("losthorizons", "engineers_gauntlet"), Engineers_Gauntlet);
 		//Blocks
 		//Standard Case - Ores
 			Registry.register(Registries.BLOCK, new Identifier("losthorizons", "tin_ore"), Tin_Ore);

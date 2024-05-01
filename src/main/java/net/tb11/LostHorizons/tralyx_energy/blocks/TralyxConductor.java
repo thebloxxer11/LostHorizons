@@ -5,11 +5,18 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
+import net.minecraft.text.Text;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.tb11.LostHorizons.LostHorizons;
+import net.tb11.LostHorizons.items.tools.EngineersGauntlet;
 import net.tb11.LostHorizons.tralyx_energy.block_entities.TralyxConductorBlockEntity;
 
 public class TralyxConductor extends BlockWithEntity{
@@ -35,5 +42,19 @@ public class TralyxConductor extends BlockWithEntity{
     }
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context){
         return Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 9.0D, 16.0D);
+    }
+    @Override
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        BlockEntity be = world.getBlockEntity(pos);
+        if (be instanceof TralyxConductorBlockEntity) {
+            TralyxConductorBlockEntity conductorBlockEntity = (TralyxConductorBlockEntity) be;
+            Item mainHand = player.getMainHandStack().getItem();
+            if (mainHand instanceof EngineersGauntlet) {
+                player.sendMessage(Text.literal("Successfully linked Conductor to <UNKNOWN>"));
+            }
+
+        }
+        return ActionResult.SUCCESS;
+
     }
 }
