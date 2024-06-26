@@ -1,16 +1,18 @@
-package net.tb11.LostHorizons.mixin;
+package net.tb11.LostHorizons.mixin.client;
 
-import net.minecraft.server.MinecraftServer;
+import net.minecraft.client.MinecraftClient;
 import net.tb11.LostHorizons.LostHorizons;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(MinecraftServer.class)
-public class LostHorizonsMixin {
-	@Inject(at = @At("HEAD"), method = "loadWorld")
+
+@Mixin(MinecraftClient.class)
+public class LostHorizonsMixinClient {
+	@Inject(at = @At("HEAD"), method = "run")
 	private void init(CallbackInfo info) {
-		LostHorizons.LOGGER.info("Server Mixin Loaded");
+		LostHorizons.LOGGER.info("Mixin-Logger go brrrr");
 	}
 }

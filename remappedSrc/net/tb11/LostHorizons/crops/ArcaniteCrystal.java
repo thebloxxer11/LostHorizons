@@ -1,16 +1,9 @@
 package net.tb11.LostHorizons.crops;
 
 
-//import java.util.Random;
 
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-//import net.minecraft.block.Blocks;
-import net.minecraft.block.CropBlock;
-import net.minecraft.block.ShapeContext;
+import net.minecraft.block.*;
 import net.minecraft.item.ItemConvertible;
-//import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
@@ -39,7 +32,7 @@ public class ArcaniteCrystal extends CropBlock{
         return LostHorizons.Arcanite_Seed;
     }
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return Growth_Stage[(Integer)state.get(this.getAgeProperty())];
+        return Growth_Stage[state.get(this.getAgeProperty())];
     }
 
     @Override

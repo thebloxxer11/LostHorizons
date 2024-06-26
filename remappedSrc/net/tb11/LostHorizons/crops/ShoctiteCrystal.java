@@ -35,15 +35,15 @@ public class ShoctiteCrystal extends CropBlock{
         return LostHorizons.Shoctite_Seed;
     }
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return Growth_Stage[(Integer)state.get(this.getAgeProperty())];
+        return Growth_Stage[state.get(this.getAgeProperty())];
     }
     
     @Override
     protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos){
         return floor.isOf(LostHorizons.Shoctite_Sand);
     }
-    // @Override
-    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient){
+    @Override
+    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state){
         return false;
     }
 }
