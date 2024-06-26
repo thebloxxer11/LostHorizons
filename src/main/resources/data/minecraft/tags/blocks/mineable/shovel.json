@@ -1,0 +1,12 @@
+{
+    "replace": false,
+    "values": [
+      "losthorizons:arcanite_sand",
+      "losthorizons:nullix_sand",
+      "losthorizons:pyrotite_sand",
+      "losthorizons:crylatite_sand",
+      "losthorizons:noxite_sand",
+      "losthorizons:shoctite_sand"
+      
+    ]
+  }

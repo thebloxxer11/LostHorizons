@@ -1,0 +1,8 @@
+{
+    "replace": false,
+    "values": [
+      "losthorizons:tin_ore",
+      "losthorizons:tin_ore_deep",
+      "losthorizons:aluminum_ore"
+    ]
+  }

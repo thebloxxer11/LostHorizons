@@ -1,0 +1,22 @@
+{
+    "structures": [
+      {
+        "structure": "losthorizons:noxite_small",
+        "weight": 3
+      },
+      {
+        "structure": "losthorizons:noxite_medium",
+        "weight": 2
+      },
+      {
+        "structure": "losthorizons:noxite_large",
+        "weight": 1
+      }
+    ],
+    "placement": {
+      "type": "minecraft:random_spread",
+      "spacing": 9,
+      "separation": 3,
+      "salt": 74689642 
+    }
+  }
