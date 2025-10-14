@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.CropBlock;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
@@ -68,12 +69,12 @@ public class LostHorizons implements ModInitializer {
 	public static final Block Noxite_Block = BlockGeneric.register(new Block(AbstractBlock.Settings.create().strength(3.0f).requiresTool().sounds(BlockSoundGroup.AMETHYST_BLOCK)), "noxite_block", true);
 	public static final Block Shoctite_Block = BlockGeneric.register(new Block(AbstractBlock.Settings.create().strength(3.0f).requiresTool().sounds(BlockSoundGroup.AMETHYST_BLOCK)), "shoctite_block", true);
 	//Crystals
-	public static final Block Arcanite_Crystal = BlockGeneric.register(new ArcaniteCrystal(AbstractBlock.Settings.create().nonOpaque().noCollision().ticksRandomly().hardness(1.0f).sounds(BlockSoundGroup.AMETHYST_CLUSTER)), "arcanite_crystal", true);
-	public static final Block Nullix_Crystal = BlockGeneric.register(new NullixCrystal(AbstractBlock.Settings.create().nonOpaque().noCollision().ticksRandomly().hardness(1.0f).sounds(BlockSoundGroup.AMETHYST_CLUSTER)), "nullix_crystal", true);
-	public static final Block Pyrotite_Crystal = BlockGeneric.register(new PyrotiteCrystal(AbstractBlock.Settings.create().nonOpaque().noCollision().ticksRandomly().hardness(1.0f).sounds(BlockSoundGroup.AMETHYST_CLUSTER)), "pyrotite_crystal", true);
-	public static final Block Crylatite_Crystal = BlockGeneric.register(new CrylatiteCrystal(AbstractBlock.Settings.create().nonOpaque().noCollision().ticksRandomly().hardness(1.0f).sounds(BlockSoundGroup.AMETHYST_CLUSTER)), "crylatite_crystal", true);
-	public static final Block Noxite_Crystal = BlockGeneric.register(new NoxiteCrystal(AbstractBlock.Settings.create().nonOpaque().noCollision().ticksRandomly().hardness(1.0f).sounds(BlockSoundGroup.AMETHYST_CLUSTER)), "noxite_crystal", true);
-	public static final Block Shoctite_Crystal = BlockGeneric.register(new ShoctiteCrystal(AbstractBlock.Settings.create().nonOpaque().noCollision().ticksRandomly().hardness(1.0f).sounds(BlockSoundGroup.AMETHYST_CLUSTER)), "shoctite_crystal", true);
+	public static final Block Arcanite_Crystal = BlockGeneric.register(new ArcaniteCrystal(AbstractBlock.Settings.create().nonOpaque().noCollision().ticksRandomly().hardness(1.0f).sounds(BlockSoundGroup.AMETHYST_CLUSTER)), "arcanite_crystal",false);
+	public static final Block Nullix_Crystal = BlockGeneric.register(new NullixCrystal(AbstractBlock.Settings.create().nonOpaque().noCollision().ticksRandomly().hardness(1.0f).sounds(BlockSoundGroup.AMETHYST_CLUSTER)), "nullix_crystal", false);
+	public static final Block Pyrotite_Crystal = BlockGeneric.register(new PyrotiteCrystal(AbstractBlock.Settings.create().nonOpaque().noCollision().ticksRandomly().hardness(1.0f).sounds(BlockSoundGroup.AMETHYST_CLUSTER)), "pyrotite_crystal", false);
+	public static final Block Crylatite_Crystal = BlockGeneric.register(new CrylatiteCrystal(AbstractBlock.Settings.create().nonOpaque().noCollision().ticksRandomly().hardness(1.0f).sounds(BlockSoundGroup.AMETHYST_CLUSTER)), "crylatite_crystal", false);
+	public static final Block Noxite_Crystal = BlockGeneric.register(new NoxiteCrystal(AbstractBlock.Settings.create().nonOpaque().noCollision().ticksRandomly().hardness(1.0f).sounds(BlockSoundGroup.AMETHYST_CLUSTER)), "noxite_crystal", false);
+	public static final Block Shoctite_Crystal = BlockGeneric.register(new ShoctiteCrystal(AbstractBlock.Settings.create().nonOpaque().noCollision().ticksRandomly().hardness(1.0f).sounds(BlockSoundGroup.AMETHYST_CLUSTER)), "shoctite_crystal", false);
 	//Crystalline Sand
 	public static final Block Arcanite_Sand = BlockGeneric.register(new ArcaniteCrystallineSand(AbstractBlock.Settings.create().ticksRandomly().hardness(2.0f).sounds(BlockSoundGroup.SAND)), "arcanite_sand", true);
 	public static final Block Nullix_Sand = BlockGeneric.register(new NullixCrystallineSand(AbstractBlock.Settings.create().ticksRandomly().hardness(2.0f).sounds(BlockSoundGroup.SAND)), "nullix_sand", true);
@@ -104,19 +105,19 @@ public class LostHorizons implements ModInitializer {
 	public static final Item Sulfur =       ItemGeneric.register(new Item(new Item.Settings()), "sulfur"); //Lead Refinement Byproduct, Sulfur
 	public static final Item Steel_Ingot =  ItemGeneric.register(new Item(new Item.Settings()), "steel_ingot"); //Steel Ingot
 	//Materials - Arcane Crystal Shard
-	public static final Item Arcanite_Shard =   ItemGeneric.register(new Item(new Item.Settings()), "arcanite"); //Arcanite Crystal - Arcane - Manipulates Arcana
-	public static final Item Pyrotite_Shard =   ItemGeneric.register(new Item(new Item.Settings()), "pyrotite"); //Pyrotite Crystal - Heat - burns entities
-	public static final Item Crylatite_Shard =  ItemGeneric.register(new Item(new Item.Settings()), "crylatite"); //Crylatite Crystal - Cold - slows entities
-	public static final Item Noxite_Shard =     ItemGeneric.register(new Item(new Item.Settings()), "noxite"); //Noxite Crystal - Life - poisons entities
-	public static final Item Shoctite_Shard =   ItemGeneric.register(new Item(new Item.Settings()), "shoctite"); //Shoctite Crystal - Lightning - stuns entities
-	public static final Item Nullix_Shard =     ItemGeneric.register(new Item(new Item.Settings()), "nullix"); //Nullix Crystal - Void - Manipulates the Void
+	public static final Item Arcanite_Shard =   ItemGeneric.register(new AliasedBlockItem(Arcanite_Crystal, new  Item.Settings()), "arcanite"); //Arcanite Crystal - Arcane - Manipulates Arcana
+	public static final Item Pyrotite_Shard =   ItemGeneric.register(new AliasedBlockItem(Pyrotite_Crystal, new Item.Settings()), "pyrotite"); //Pyrotite Crystal - Heat - burns entities
+	public static final Item Crylatite_Shard =  ItemGeneric.register(new AliasedBlockItem(Crylatite_Crystal, new Item.Settings()), "crylatite"); //Crylatite Crystal - Cold - slows entities
+	public static final Item Noxite_Shard =     ItemGeneric.register(new AliasedBlockItem(Noxite_Crystal, new Item.Settings()), "noxite"); //Noxite Crystal - Life - poisons entities
+	public static final Item Shoctite_Shard =   ItemGeneric.register(new AliasedBlockItem(Shoctite_Crystal, new Item.Settings()), "shoctite"); //Shoctite Crystal - Lightning - stuns entities
+	public static final Item Nullix_Shard =     ItemGeneric.register(new AliasedBlockItem(Nullix_Crystal, new Item.Settings()), "nullix"); //Nullix Crystal - Void - Manipulates the Void
 	//Crystal "Seeds"
-	public static final Item Arcanite_Seed = new AliasedBlockItem(Arcanite_Crystal, new Item.Settings());
-	public static final Item Nullix_Seed = new AliasedBlockItem(Nullix_Crystal, new Item.Settings());
-	public static final Item Pyrotite_Seed = new AliasedBlockItem(Pyrotite_Crystal, new Item.Settings());
-	public static final Item Crylatite_Seed = new AliasedBlockItem(Crylatite_Crystal, new Item.Settings());
-	public static final Item Noxite_Seed = new AliasedBlockItem(Noxite_Crystal, new Item.Settings());
-	public static final Item Shoctite_Seed = new AliasedBlockItem(Shoctite_Crystal, new Item.Settings());
+//	public static final Item Arcanite_Seed = ItemGeneric.register(new AliasedBlockItem(Arcanite_Crystal, new Item.Settings()), "arcanite_seed");
+//	public static final Item Nullix_Seed = ItemGeneric.register(new AliasedBlockItem(Nullix_Crystal, new Item.Settings()), "nullix_seed");
+//	public static final Item Pyrotite_Seed = ItemGeneric.register(new AliasedBlockItem(Pyrotite_Crystal, new Item.Settings()), "pyrotite_seed");
+//	public static final Item Crylatite_Seed = ItemGeneric.register(new AliasedBlockItem(Crylatite_Crystal, new Item.Settings()), "crylatite_seed");
+//	public static final Item Noxite_Seed = ItemGeneric.register(new AliasedBlockItem(Noxite_Crystal, new Item.Settings()), "noxite_seed");
+//	public static final Item Shoctite_Seed = ItemGeneric.register(new AliasedBlockItem(Shoctite_Crystal, new Item.Settings()), "shoctite_seed");
 	public static final Item Engineers_Gauntlet = ItemGeneric.register(new EngineersGauntlet(new Item.Settings().maxCount(1)), "engineers_gauntlet");
 
     //Block Entities
@@ -165,12 +166,12 @@ public class LostHorizons implements ModInitializer {
 		 addToGroupInPost(Crylatite_Shard, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMATR_GROUP).getKey().get());
 		 addToGroupInPost(Noxite_Shard, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMATR_GROUP).getKey().get());
 		 addToGroupInPost(Shoctite_Shard, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMATR_GROUP).getKey().get());
-		 addToGroupInPost(Arcanite_Seed, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMATR_GROUP).getKey().get());
-		 addToGroupInPost(Nullix_Seed, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMATR_GROUP).getKey().get());
-		 addToGroupInPost(Pyrotite_Seed, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMATR_GROUP).getKey().get());
-		 addToGroupInPost(Crylatite_Seed, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMATR_GROUP).getKey().get());
-		 addToGroupInPost(Noxite_Seed, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMATR_GROUP).getKey().get());
-		 addToGroupInPost(Shoctite_Seed, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMATR_GROUP).getKey().get());
+//		 addToGroupInPost(Arcanite_Seed, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMATR_GROUP).getKey().get());
+//		 addToGroupInPost(Nullix_Seed, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMATR_GROUP).getKey().get());
+//		 addToGroupInPost(Pyrotite_Seed, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMATR_GROUP).getKey().get());
+//		 addToGroupInPost(Crylatite_Seed, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMATR_GROUP).getKey().get());
+//		 addToGroupInPost(Noxite_Seed, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMATR_GROUP).getKey().get());
+//		 addToGroupInPost(Shoctite_Seed, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMATR_GROUP).getKey().get());
 		 //Material Blocks
 		 addToGroupInPost(Arcanite_Sand.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMATR_GROUP).getKey().get());
 		 addToGroupInPost(Nullix_Sand.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMATR_GROUP).getKey().get());

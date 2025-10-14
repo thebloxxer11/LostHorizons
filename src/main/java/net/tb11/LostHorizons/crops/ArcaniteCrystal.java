@@ -29,7 +29,7 @@ public class ArcaniteCrystal extends CropBlock{
     }
 
     public ItemConvertible getSeedsItem() {
-        return LostHorizons.Arcanite_Seed;
+        return LostHorizons.Arcanite_Shard;
     }
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return Growth_Stage[state.get(this.getAgeProperty())];

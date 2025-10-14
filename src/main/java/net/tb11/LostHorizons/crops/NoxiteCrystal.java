@@ -32,7 +32,7 @@ public class NoxiteCrystal extends CropBlock{
     }
 
     public ItemConvertible getSeedsItem() {
-        return LostHorizons.Noxite_Seed;
+        return LostHorizons.Noxite_Shard;
     }
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return Growth_Stage[state.get(this.getAgeProperty())];

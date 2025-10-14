@@ -32,7 +32,7 @@ public class CrylatiteCrystal extends CropBlock{
     }
 
     public ItemConvertible getSeedsItem() {
-        return LostHorizons.Crylatite_Seed;
+        return LostHorizons.Crylatite_Shard;
     }
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return Growth_Stage[state.get(this.getAgeProperty())];
