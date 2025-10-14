@@ -15,9 +15,6 @@ public class EngineersGauntlet extends Item {
     //Link Mode
     @Override
     public ActionResult useOnBlock(ItemUsageContext context){
-        if (storedPos == null) {
-            storedPos = context.getBlockPos();
-        }
         return ActionResult.SUCCESS;
     }
 

@@ -42,9 +42,9 @@
   "depends": {
     "fabricloader": ">=0.15.11",
     "fabric-api": "*",
-    "minecraft": "1.21",
+    "minecraft": "1.21.1",
     "java": ">=21",
-    "terrablender": "4.0.0.1"
+    "terrablender": ">=4.1.0.8"
   },
   "suggests": {
     "another-mod": "*"

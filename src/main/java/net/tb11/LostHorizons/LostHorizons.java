@@ -5,11 +5,9 @@ import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.CropBlock;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
@@ -24,6 +22,8 @@ import net.minecraft.world.gen.feature.PlacedFeature;
 import net.tb11.LostHorizons.block_entities.CrystallineSandBlockEntity;
 import net.tb11.LostHorizons.blocks.*;
 import net.tb11.LostHorizons.crops.*;
+import net.tb11.LostHorizons.item_groups.ItemGroupGeneric;
+import net.tb11.LostHorizons.items.*;
 import net.tb11.LostHorizons.items.tools.EngineersGauntlet;
 import net.tb11.LostHorizons.tralyx_energy.block_entities.TralyxConductorBlockEntity;
 import net.tb11.LostHorizons.tralyx_energy.blocks.TralyxConductor;
@@ -38,78 +38,78 @@ public class LostHorizons implements ModInitializer {
 	public static final String MOD_ID = "losthorizons";
 	//Group Registries
 	//Materials
-	public static final ItemGroup LHMATR_GROUP = FabricItemGroup.builder().icon(()-> new ItemStack(Items.BARRIER)).displayName(Text.translatable("itemGroup.losthorizons.materials")).build();
+	public static final ItemGroup LHMATR_GROUP = ItemGroupGeneric.register(FabricItemGroup.builder().icon(()-> new ItemStack(Items.BARRIER)).displayName(Text.translatable("itemGroup.losthorizons.materials")).build(), "materials_group");
 	//Machines and Constructs
-	public static final ItemGroup LHMACH_GROUP = FabricItemGroup.builder().icon(()-> new ItemStack(Items.BARRIER)).displayName(Text.translatable("itemGroup.losthorizons.machines")).build();
+	public static final ItemGroup LHMACH_GROUP = ItemGroupGeneric.register(FabricItemGroup.builder().icon(()-> new ItemStack(Items.BARRIER)).displayName(Text.translatable("itemGroup.losthorizons.machines")).build(), "machines_group");
 	//Tools, Armor and Weaponry
-	public static final ItemGroup LHTOOL_GROUP = FabricItemGroup.builder().icon(()-> new ItemStack(Items.BARRIER)).displayName(Text.translatable("itemGroup.losthorizons.tools")).build();
-	
+	public static final ItemGroup LHTOOL_GROUP = ItemGroupGeneric.register(FabricItemGroup.builder().icon(()-> new ItemStack(Items.BARRIER)).displayName(Text.translatable("itemGroup.losthorizons.tools")).build(), "tools_group");
 
 	//Blocks
 	//Standard Case - Ores
-	public static final Block Tin_Ore = new Block(FabricBlockSettings.create().strength(3.0f).requiresTool().sounds(BlockSoundGroup.STONE)); //Tin Ore
-	public static final Block Tin_Ore_Deep = new Block(FabricBlockSettings.create().strength(4.5f).requiresTool().sounds(BlockSoundGroup.DEEPSLATE)); //Deepslate Tin Ore
-	public static final Block Hexatium_Ore = new Block(FabricBlockSettings.create().strength(3.0f).requiresTool().sounds(BlockSoundGroup.DEEPSLATE)); //Hexatium Ore
-	public static final Block Lithium_Ore = new Block(FabricBlockSettings.create().strength(3.0f).requiresTool().sounds(BlockSoundGroup.STONE)); //Lithium Ore
-	public static final Block Lithium_Ore_Deep = new Block(FabricBlockSettings.create().strength(4.5f).requiresTool().sounds(BlockSoundGroup.DEEPSLATE)); //Deepslate Lithium Ore
-	public static final Block Aluminum_Ore = new Block(FabricBlockSettings.create().strength(3.0f).requiresTool().sounds(BlockSoundGroup.STONE)); //Laterite Ore
-	public static final Block Galena_Ore = new Block(FabricBlockSettings.create().strength(3.0f).requiresTool().sounds(BlockSoundGroup.STONE)); //Galena Ore
+	public static final Block Tin_Ore = BlockGeneric.register(new Block(AbstractBlock.Settings.create().strength(3.0f).requiresTool().sounds(BlockSoundGroup.STONE)), "tin_ore", true); //Tin Ore
+	public static final Block Tin_Ore_Deep = BlockGeneric.register(new Block(AbstractBlock.Settings.create().strength(4.5f).requiresTool().sounds(BlockSoundGroup.DEEPSLATE)), "tin_ore_deep", true); //Deepslate Tin Ore
+	public static final Block Hexatium_Ore = BlockGeneric.register(new Block(AbstractBlock.Settings.create().strength(3.0f).requiresTool().sounds(BlockSoundGroup.DEEPSLATE)), "hexatium_ore", true); //Hexatium Ore
+	public static final Block Lithium_Ore = BlockGeneric.register(new Block(AbstractBlock.Settings.create().strength(3.0f).requiresTool().sounds(BlockSoundGroup.STONE)), "lithium_ore", true); //Lithium Ore
+	public static final Block Lithium_Ore_Deep = BlockGeneric.register(new Block(AbstractBlock.Settings.create().strength(4.5f).requiresTool().sounds(BlockSoundGroup.DEEPSLATE)), "lithium_ore_deep", true); //Deepslate Lithium Ore
+	public static final Block Aluminum_Ore = BlockGeneric.register(new Block(AbstractBlock.Settings.create().strength(3.0f).requiresTool().sounds(BlockSoundGroup.STONE)), "aluminum_ore", true); //Laterite Ore
+	public static final Block Galena_Ore = BlockGeneric.register(new Block(AbstractBlock.Settings.create().strength(3.0f).requiresTool().sounds(BlockSoundGroup.STONE)), "galena_ore", true); //Galena Ore
 	//Standard Case - Material Blocks
-	public static final Block Tin_Block = new Block(FabricBlockSettings.create().strength(3.0f).requiresTool().sounds(BlockSoundGroup.METAL)); 
-	public static final Block Lithium_Block = new Block(FabricBlockSettings.create().strength(3.0f).requiresTool().sounds(BlockSoundGroup.METAL));
-	public static final Block Aluminum_Block = new Block(FabricBlockSettings.create().strength(3.0f).requiresTool().sounds(BlockSoundGroup.METAL));
-	public static final Block Lead_Block = new Block(FabricBlockSettings.create().strength(3.0f).requiresTool().sounds(BlockSoundGroup.METAL));
-	public static final Block Silver_Block = new Block(FabricBlockSettings.create().strength(3.0f).requiresTool().sounds(BlockSoundGroup.METAL));
-	public static final Block Hexatium_Block = new Block(FabricBlockSettings.create().strength(3.0f).requiresTool().sounds(BlockSoundGroup.METAL));
+	public static final Block Tin_Block = BlockGeneric.register(new Block(AbstractBlock.Settings.create().strength(3.0f).requiresTool().sounds(BlockSoundGroup.METAL)), "tin_block", true);
+	public static final Block Lithium_Block = BlockGeneric.register(new Block(AbstractBlock.Settings.create().strength(3.0f).requiresTool().sounds(BlockSoundGroup.METAL)), "lithium_block", true);
+	public static final Block Aluminum_Block = BlockGeneric.register(new Block(AbstractBlock.Settings.create().strength(3.0f).requiresTool().sounds(BlockSoundGroup.METAL)), "aluminum_block", true);
+	public static final Block Lead_Block = BlockGeneric.register(new Block(AbstractBlock.Settings.create().strength(3.0f).requiresTool().sounds(BlockSoundGroup.METAL)), "lead_block", true);
+	public static final Block Silver_Block = BlockGeneric.register(new Block(AbstractBlock.Settings.create().strength(3.0f).requiresTool().sounds(BlockSoundGroup.METAL)), "silver_block", true);
+	public static final Block Hexatium_Block = BlockGeneric.register(new Block(AbstractBlock.Settings.create().strength(3.0f).requiresTool().sounds(BlockSoundGroup.METAL)), "hexatium_block", true);
 	//Standard Case - Crystal Blocks
-	public static final Block Arcanite_Block = new Block(FabricBlockSettings.create().strength(3.0f).requiresTool().sounds(BlockSoundGroup.AMETHYST_BLOCK));
-	public static final Block Nullix_Block = new Block(FabricBlockSettings.create().strength(3.0f).requiresTool().sounds(BlockSoundGroup.AMETHYST_BLOCK)); 
-	public static final Block Pyrotite_Block = new Block(FabricBlockSettings.create().strength(3.0f).requiresTool().sounds(BlockSoundGroup.AMETHYST_BLOCK));
-	public static final Block Crylatite_Block = new Block(FabricBlockSettings.create().strength(3.0f).requiresTool().sounds(BlockSoundGroup.AMETHYST_BLOCK));
-	public static final Block Noxite_Block = new Block(FabricBlockSettings.create().strength(3.0f).requiresTool().sounds(BlockSoundGroup.AMETHYST_BLOCK));
-	public static final Block Shoctite_Block = new Block(FabricBlockSettings.create().strength(3.0f).requiresTool().sounds(BlockSoundGroup.AMETHYST_BLOCK));
+	public static final Block Arcanite_Block = BlockGeneric.register(new Block(AbstractBlock.Settings.create().strength(3.0f).requiresTool().sounds(BlockSoundGroup.AMETHYST_BLOCK)), "arcanite_block", true);
+	public static final Block Nullix_Block = BlockGeneric.register(new Block(AbstractBlock.Settings.create().strength(3.0f).requiresTool().sounds(BlockSoundGroup.AMETHYST_BLOCK)), "nullix_block", true);
+	public static final Block Pyrotite_Block = BlockGeneric.register(new Block(AbstractBlock.Settings.create().strength(3.0f).requiresTool().sounds(BlockSoundGroup.AMETHYST_BLOCK)), "pyrotite_block", true);
+	public static final Block Crylatite_Block = BlockGeneric.register(new Block(AbstractBlock.Settings.create().strength(3.0f).requiresTool().sounds(BlockSoundGroup.AMETHYST_BLOCK)), "crylatite_block", true);
+	public static final Block Noxite_Block = BlockGeneric.register(new Block(AbstractBlock.Settings.create().strength(3.0f).requiresTool().sounds(BlockSoundGroup.AMETHYST_BLOCK)), "noxite_block", true);
+	public static final Block Shoctite_Block = BlockGeneric.register(new Block(AbstractBlock.Settings.create().strength(3.0f).requiresTool().sounds(BlockSoundGroup.AMETHYST_BLOCK)), "shoctite_block", true);
 	//Crystals
-	public static final CropBlock Arcanite_Crystal = new ArcaniteCrystal(FabricBlockSettings.create().nonOpaque().noCollision().ticksRandomly().hardness(1.0f).sounds(BlockSoundGroup.AMETHYST_CLUSTER));
-	public static final CropBlock Nullix_Crystal = new NullixCrystal(FabricBlockSettings.create().nonOpaque().noCollision().ticksRandomly().hardness(1.0f).sounds(BlockSoundGroup.AMETHYST_CLUSTER));
-	public static final CropBlock Pyrotite_Crystal = new PyrotiteCrystal(FabricBlockSettings.create().nonOpaque().noCollision().ticksRandomly().hardness(1.0f).sounds(BlockSoundGroup.AMETHYST_CLUSTER));
-	public static final CropBlock Crylatite_Crystal = new CrylatiteCrystal(FabricBlockSettings.create().nonOpaque().noCollision().ticksRandomly().hardness(1.0f).sounds(BlockSoundGroup.AMETHYST_CLUSTER));
-	public static final CropBlock Noxite_Crystal = new NoxiteCrystal(FabricBlockSettings.create().nonOpaque().noCollision().ticksRandomly().hardness(1.0f).sounds(BlockSoundGroup.AMETHYST_CLUSTER));
-	public static final CropBlock Shoctite_Crystal = new ShoctiteCrystal(FabricBlockSettings.create().nonOpaque().noCollision().ticksRandomly().hardness(1.0f).sounds(BlockSoundGroup.AMETHYST_CLUSTER));
+	public static final Block Arcanite_Crystal = BlockGeneric.register(new ArcaniteCrystal(AbstractBlock.Settings.create().nonOpaque().noCollision().ticksRandomly().hardness(1.0f).sounds(BlockSoundGroup.AMETHYST_CLUSTER)), "arcanite_crystal", true);
+	public static final Block Nullix_Crystal = BlockGeneric.register(new NullixCrystal(AbstractBlock.Settings.create().nonOpaque().noCollision().ticksRandomly().hardness(1.0f).sounds(BlockSoundGroup.AMETHYST_CLUSTER)), "nullix_crystal", true);
+	public static final Block Pyrotite_Crystal = BlockGeneric.register(new PyrotiteCrystal(AbstractBlock.Settings.create().nonOpaque().noCollision().ticksRandomly().hardness(1.0f).sounds(BlockSoundGroup.AMETHYST_CLUSTER)), "pyrotite_crystal", true);
+	public static final Block Crylatite_Crystal = BlockGeneric.register(new CrylatiteCrystal(AbstractBlock.Settings.create().nonOpaque().noCollision().ticksRandomly().hardness(1.0f).sounds(BlockSoundGroup.AMETHYST_CLUSTER)), "crylatite_crystal", true);
+	public static final Block Noxite_Crystal = BlockGeneric.register(new NoxiteCrystal(AbstractBlock.Settings.create().nonOpaque().noCollision().ticksRandomly().hardness(1.0f).sounds(BlockSoundGroup.AMETHYST_CLUSTER)), "noxite_crystal", true);
+	public static final Block Shoctite_Crystal = BlockGeneric.register(new ShoctiteCrystal(AbstractBlock.Settings.create().nonOpaque().noCollision().ticksRandomly().hardness(1.0f).sounds(BlockSoundGroup.AMETHYST_CLUSTER)), "shoctite_crystal", true);
 	//Crystalline Sand
-	public static final ArcaniteCrystallineSand Arcanite_Sand = new ArcaniteCrystallineSand(FabricBlockSettings.create().ticksRandomly().hardness(2.0f).sounds(BlockSoundGroup.SAND));
-	public static final NullixCrystallineSand Nullix_Sand = new NullixCrystallineSand(FabricBlockSettings.create().ticksRandomly().hardness(2.0f).sounds(BlockSoundGroup.SAND));
-	public static final PyrotiteCrystallineSand Pyrotite_Sand = new PyrotiteCrystallineSand(FabricBlockSettings.create().ticksRandomly().hardness(2.0f).sounds(BlockSoundGroup.SAND));
-	public static final CrylatiteCrystallineSand Crylatite_Sand = new CrylatiteCrystallineSand(FabricBlockSettings.create().ticksRandomly().hardness(2.0f).sounds(BlockSoundGroup.SAND));
-	public static final NoxiteCrystallineSand Noxite_Sand = new NoxiteCrystallineSand(FabricBlockSettings.create().ticksRandomly().hardness(2.0f).sounds(BlockSoundGroup.SAND));
-	public static final ShoctiteCrystallineSand Shoctite_Sand = new ShoctiteCrystallineSand(FabricBlockSettings.create().ticksRandomly().hardness(2.0f).sounds(BlockSoundGroup.SAND));
+	public static final Block Arcanite_Sand = BlockGeneric.register(new ArcaniteCrystallineSand(AbstractBlock.Settings.create().ticksRandomly().hardness(2.0f).sounds(BlockSoundGroup.SAND)), "arcanite_sand", true);
+	public static final Block Nullix_Sand = BlockGeneric.register(new NullixCrystallineSand(AbstractBlock.Settings.create().ticksRandomly().hardness(2.0f).sounds(BlockSoundGroup.SAND)), "nullix_sand", true);
+	public static final Block Pyrotite_Sand = BlockGeneric.register(new PyrotiteCrystallineSand(AbstractBlock.Settings.create().ticksRandomly().hardness(2.0f).sounds(BlockSoundGroup.SAND)), "pyrotite_sand", true);
+	public static final Block Crylatite_Sand = BlockGeneric.register(new CrylatiteCrystallineSand(AbstractBlock.Settings.create().ticksRandomly().hardness(2.0f).sounds(BlockSoundGroup.SAND)), "crylatite_sand", true);
+	public static final Block Noxite_Sand = BlockGeneric.register(new NoxiteCrystallineSand(AbstractBlock.Settings.create().ticksRandomly().hardness(2.0f).sounds(BlockSoundGroup.SAND)), "noxite_sand", true);
+	public static final Block Shoctite_Sand = BlockGeneric.register(new ShoctiteCrystallineSand(AbstractBlock.Settings.create().ticksRandomly().hardness(2.0f).sounds(BlockSoundGroup.SAND)), "shoctite_sand", true);
 	//Functional Blocks
 	//Power Network
-	public static final TralyxConductor Tralyx_Conductor = new TralyxConductor(FabricBlockSettings.create().nonOpaque().collidable(true).suffocates(Blocks::never).blockVision(Blocks::never).luminance(state->(7)).hardness(4.5f).requiresTool().sounds(BlockSoundGroup.METAL));
-	//Items
+	public static final Block Tralyx_Conductor = BlockGeneric.register(new TralyxConductor(AbstractBlock.Settings.create().nonOpaque().suffocates(Blocks::never).blockVision(Blocks::never).luminance(state->(7)).hardness(4.5f).requiresTool().sounds(BlockSoundGroup.METAL)), "tralyx_conductor", true);
+
+    //Items
 	//Materials - Raw
-	public static final Item Tin_Raw = new Item(new Item.Settings()); //Tin Ore Item
-	public static final Item Tin_Ref = new Item(new Item.Settings()); //Tin Ingot
-	public static final Item Lithium_Raw = new Item(new Item.Settings()); //Lithium Ore Item
-	public static final Item Lithium_Ref = new Item(new Item.Settings()); //Lithium Ingot
-	public static final Item Aluminum_Raw = new Item(new Item.Settings()); //Laterite (Aluminum Ore) Item
-	public static final Item Aluminum_Ref = new Item(new Item.Settings()); //Aluminum Ingot
-	public static final Item Hexatium_Raw = new Item(new Item.Settings()); //Hexatium Ore Item
-	public static final Item Hexatium_Ref = new Item(new Item.Settings()); //Hexatium Ingot
-	public static final Item Rubber_Raw = new Item(new Item.Settings()); //Raw Rubber
-	public static final Item Rubber = new Item(new Item.Settings()); //Standard Rubber
-	public static final Item Rubber_Ref = new Item(new Item.Settings()); //Vulcanized Rubber
-	public static final Item Galena_Raw = new Item(new Item.Settings()); //Galena Ore Item
-	public static final Item Lead_Ref = new Item(new Item.Settings()); //Lead Ingot
-	public static final Item Silver_Ref = new Item(new Item.Settings()); //Silver Ingot
-	public static final Item Sulfur = new Item(new Item.Settings()); //Lead Refinement Byproduct, Sulfur
-	public static final Item Steel_Ingot = new Item(new Item.Settings()); //Steel Ingot
+	public static final Item Tin_Raw =      ItemGeneric.register(new Item(new Item.Settings()), "tin_raw"); //Tin Ore Item
+	public static final Item Tin_Ref =      ItemGeneric.register(new Item(new Item.Settings()), "tin_ingot"); //Tin Ingot
+	public static final Item Lithium_Raw =  ItemGeneric.register(new Item(new Item.Settings()), "lithium_raw"); //Lithium Ore Item
+	public static final Item Lithium_Ref =  ItemGeneric.register(new Item(new Item.Settings()), "lithium_ingot"); //Lithium Ingot
+	public static final Item Aluminum_Raw = ItemGeneric.register(new Item(new Item.Settings()), "aluminum_raw"); //Laterite (Aluminum Ore) Item
+	public static final Item Aluminum_Ref = ItemGeneric.register(new Item(new Item.Settings()), "aluminum_ingot"); //Aluminum Ingot
+	public static final Item Hexatium_Raw = ItemGeneric.register(new Item(new Item.Settings()), "hexatium_raw"); //Hexatium Ore Item
+	public static final Item Hexatium_Ref = ItemGeneric.register(new Item(new Item.Settings()), "hexatium_ingot"); //Hexatium Ingot
+	public static final Item Rubber_Raw =   ItemGeneric.register(new Item(new Item.Settings()), "rubber_raw"); //Raw Rubber
+	public static final Item Rubber =       ItemGeneric.register(new Item(new Item.Settings()), "rubber"); //Standard Rubber
+	public static final Item Rubber_Ref =   ItemGeneric.register(new Item(new Item.Settings()), "rubber_vulcanized"); //Vulcanized Rubber
+	public static final Item Galena_Raw =   ItemGeneric.register(new Item(new Item.Settings()), "galena_raw"); //Galena Ore Item
+	public static final Item Lead_Ref =     ItemGeneric.register(new Item(new Item.Settings()), "lead_ingot"); //Lead Ingot
+	public static final Item Silver_Ref =   ItemGeneric.register(new Item(new Item.Settings()), "silver_ingot"); //Silver Ingot
+	public static final Item Sulfur =       ItemGeneric.register(new Item(new Item.Settings()), "sulfur"); //Lead Refinement Byproduct, Sulfur
+	public static final Item Steel_Ingot =  ItemGeneric.register(new Item(new Item.Settings()), "steel_ingot"); //Steel Ingot
 	//Materials - Arcane Crystal Shard
-	public static final Item Arcanite_Shard = new Item(new Item.Settings()); //Arcanite Crystal - Arcane - Manipulates Arcana
-	public static final Item Pyrotite_Shard = new Item(new Item.Settings()); //Pyrotite Crystal - Heat - burns entities
-	public static final Item Crylatite_Shard = new Item(new Item.Settings()); //Crylatite Crystal - Cold - slows entities
-	public static final Item Noxite_Shard = new Item(new Item.Settings()); //Noxite Crystal - Life - poisons entities
-	public static final Item Shoctite_Shard = new Item(new Item.Settings()); //Shoctite Crystal - Lightning - stuns entities
-	public static final Item Nullix_Shard = new Item(new Item.Settings()); //Nullix Crystal - Void - Manipulates the Void
+	public static final Item Arcanite_Shard =   ItemGeneric.register(new Item(new Item.Settings()), "arcanite"); //Arcanite Crystal - Arcane - Manipulates Arcana
+	public static final Item Pyrotite_Shard =   ItemGeneric.register(new Item(new Item.Settings()), "pyrotite"); //Pyrotite Crystal - Heat - burns entities
+	public static final Item Crylatite_Shard =  ItemGeneric.register(new Item(new Item.Settings()), "crylatite"); //Crylatite Crystal - Cold - slows entities
+	public static final Item Noxite_Shard =     ItemGeneric.register(new Item(new Item.Settings()), "noxite"); //Noxite Crystal - Life - poisons entities
+	public static final Item Shoctite_Shard =   ItemGeneric.register(new Item(new Item.Settings()), "shoctite"); //Shoctite Crystal - Lightning - stuns entities
+	public static final Item Nullix_Shard =     ItemGeneric.register(new Item(new Item.Settings()), "nullix"); //Nullix Crystal - Void - Manipulates the Void
 	//Crystal "Seeds"
 	public static final Item Arcanite_Seed = new AliasedBlockItem(Arcanite_Crystal, new Item.Settings());
 	public static final Item Nullix_Seed = new AliasedBlockItem(Nullix_Crystal, new Item.Settings());
@@ -117,26 +117,19 @@ public class LostHorizons implements ModInitializer {
 	public static final Item Crylatite_Seed = new AliasedBlockItem(Crylatite_Crystal, new Item.Settings());
 	public static final Item Noxite_Seed = new AliasedBlockItem(Noxite_Crystal, new Item.Settings());
 	public static final Item Shoctite_Seed = new AliasedBlockItem(Shoctite_Crystal, new Item.Settings());
-	public static final EngineersGauntlet Engineers_Gauntlet = new EngineersGauntlet(new Item.Settings().maxCount(1));
-	//Block Entities
+	public static final Item Engineers_Gauntlet = ItemGeneric.register(new EngineersGauntlet(new Item.Settings().maxCount(1)), "engineers_gauntlet");
+
+    //Block Entities
 	public static final BlockEntityType<CrystallineSandBlockEntity> CRYSTAL_SAND_BLOCK_ENTITY = Registry.register(
         Registries.BLOCK_ENTITY_TYPE,
         Identifier.of("losthorizons", "crystal_sand_block_entity"),
-        FabricBlockEntityTypeBuilder.create(CrystallineSandBlockEntity::new, Arcanite_Sand, Nullix_Sand, Pyrotite_Sand, Crylatite_Sand, Noxite_Sand, Shoctite_Sand).build()
+        BlockEntityType.Builder.create(CrystallineSandBlockEntity::new, Arcanite_Sand, Nullix_Sand, Pyrotite_Sand, Crylatite_Sand, Noxite_Sand, Shoctite_Sand).build()
     );
 	public static final BlockEntityType<TralyxConductorBlockEntity> TRALYX_CONDUCTOR_BLOCK_ENTITY = Registry.register(
 			Registries.BLOCK_ENTITY_TYPE,
 			Identifier.of("losthorizons", "tralyx_conductor_block_entity"),
-			FabricBlockEntityTypeBuilder.create(TralyxConductorBlockEntity::new, Tralyx_Conductor).build()
+            BlockEntityType.Builder.create(TralyxConductorBlockEntity::new, Tralyx_Conductor).build()
 	);
-
-	//Minor Worldgen
-	//Ores
-	public static final RegistryKey<PlacedFeature> TIN_ORE_PLACED_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of("losthorizons", "tin_ore"));
-	public static final RegistryKey<PlacedFeature> LITHIUM_ORE_PLACED_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of("losthorizons", "lithium_ore"));
-	public static final RegistryKey<PlacedFeature> ALUM_ORE_PLACED_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of("losthorizons", "aluminum_ore"));
-	public static final RegistryKey<PlacedFeature> GALENA_ORE_PLACED_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of("losthorizons", "galena_ore"));
-	public static final RegistryKey<PlacedFeature> HEXATIUM_ORE_PLACED_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of("losthorizons", "hexatium_ore"));
 
 	@Override
 	public void onInitialize() {
@@ -145,109 +138,10 @@ public class LostHorizons implements ModInitializer {
 		// Proceed with mild caution.
 
 		LOGGER.info("LH Initialization Started");
-		//Group Registries
-			Registry.register(Registries.ITEM_GROUP, Identifier.of("losthorizons", "materials_group"), LHMATR_GROUP);
-			Registry.register(Registries.ITEM_GROUP, Identifier.of("losthorizons", "machines_group"), LHMACH_GROUP);
-			Registry.register(Registries.ITEM_GROUP, Identifier.of("losthorizons", "tools_group"), LHTOOL_GROUP);
-		//Items
-		//Materials - Raw
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "tin_raw"), Tin_Raw); 
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "tin_ingot"), Tin_Ref);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "lithium_raw"), Lithium_Raw);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "lithium_ingot"), Lithium_Ref);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "aluminum_raw"), Aluminum_Raw);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "aluminum_ingot"), Aluminum_Ref);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "hexatium_raw"), Hexatium_Raw);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "hexatium_ingot"), Hexatium_Ref);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "rubber_raw"), Rubber_Raw);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "rubber"), Rubber);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "rubber_vulcanized"), Rubber_Ref);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "galena_raw"), Galena_Raw);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "lead_ingot"), Lead_Ref);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "silver_ingot"), Silver_Ref);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "sulfur"), Sulfur);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "steel_ingot"), Steel_Ingot);
-		//Materials - Arcane Crystals
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "arcanite"), Arcanite_Shard);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "nullix"), Nullix_Shard);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "pyrotite"), Pyrotite_Shard);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "crylatite"), Crylatite_Shard);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "noxite"), Noxite_Shard);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "shoctite"), Shoctite_Shard);
-		//Crystal "Seeds"
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "arcanite_crystal_item"), Arcanite_Seed);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "nullix_crystal_item"), Nullix_Seed);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "pyrotite_crystal_item"), Pyrotite_Seed);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "crylatite_crystal_item"), Crylatite_Seed);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "noxite_crystal_item"), Noxite_Seed);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "shoctite_crystal_item"), Shoctite_Seed);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "engineers_gauntlet"), Engineers_Gauntlet);
-		//Blocks
-		//Standard Case - Ores
-			Registry.register(Registries.BLOCK, Identifier.of("losthorizons", "tin_ore"), Tin_Ore);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "tin_ore"), new BlockItem(Tin_Ore, new Item.Settings()));
-			Registry.register(Registries.BLOCK, Identifier.of("losthorizons", "tin_ore_deep"), Tin_Ore_Deep);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "tin_ore_deep"), new BlockItem(Tin_Ore_Deep, new Item.Settings()));
-			Registry.register(Registries.BLOCK, Identifier.of("losthorizons", "hexatium_ore"), Hexatium_Ore);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "hexatium_ore"), new BlockItem(Hexatium_Ore, new Item.Settings()));
-			Registry.register(Registries.BLOCK, Identifier.of("losthorizons", "lithium_ore"), Lithium_Ore);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "lithium_ore"), new BlockItem(Lithium_Ore, new Item.Settings()));
-			Registry.register(Registries.BLOCK, Identifier.of("losthorizons", "lithium_ore_deep"), Lithium_Ore_Deep);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "lithium_ore_deep"), new BlockItem(Lithium_Ore_Deep, new Item.Settings()));
-			Registry.register(Registries.BLOCK, Identifier.of("losthorizons", "aluminum_ore"), Aluminum_Ore);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "aluminum_ore"), new BlockItem(Aluminum_Ore, new Item.Settings()));
-			Registry.register(Registries.BLOCK, Identifier.of("losthorizons", "galena_ore"), Galena_Ore);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "galena_ore"), new BlockItem(Galena_Ore, new Item.Settings()));
-		//Standard Case - Materials
-			Registry.register(Registries.BLOCK, Identifier.of("losthorizons", "tin_block"), Tin_Block);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "tin_block"), new BlockItem(Tin_Block, new Item.Settings()));
-			Registry.register(Registries.BLOCK, Identifier.of("losthorizons", "lithium_block"), Lithium_Block);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "lithium_block"), new BlockItem(Lithium_Block, new Item.Settings()));
-			Registry.register(Registries.BLOCK, Identifier.of("losthorizons", "aluminum_block"), Aluminum_Block);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "aluminum_block"), new BlockItem(Aluminum_Block, new Item.Settings()));
-			Registry.register(Registries.BLOCK, Identifier.of("losthorizons", "lead_block"), Lead_Block);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "lead_block"), new BlockItem(Lead_Block, new Item.Settings()));
-			Registry.register(Registries.BLOCK, Identifier.of("losthorizons", "silver_block"), Silver_Block);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "silver_block"), new BlockItem(Silver_Block, new Item.Settings()));
-			Registry.register(Registries.BLOCK, Identifier.of("losthorizons", "hexatium_block"), Hexatium_Block);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "hexatium_block"), new BlockItem(Hexatium_Block, new Item.Settings()));
-		//Standard Case - Crystals
-			Registry.register(Registries.BLOCK, Identifier.of("losthorizons", "arcanite_block"), Arcanite_Block);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "arcanite_block"), new BlockItem(Arcanite_Block, new Item.Settings()));
-			Registry.register(Registries.BLOCK, Identifier.of("losthorizons", "nullix_block"), Nullix_Block);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "nullix_block"), new BlockItem(Nullix_Block, new Item.Settings()));
-			Registry.register(Registries.BLOCK, Identifier.of("losthorizons", "pyrotite_block"), Pyrotite_Block);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "pyrotite_block"), new BlockItem(Pyrotite_Block, new Item.Settings()));
-			Registry.register(Registries.BLOCK, Identifier.of("losthorizons", "crylatite_block"), Crylatite_Block);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "crylatite_block"), new BlockItem(Crylatite_Block, new Item.Settings()));
-			Registry.register(Registries.BLOCK, Identifier.of("losthorizons", "noxite_block"), Noxite_Block);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "noxite_block"), new BlockItem(Noxite_Block, new Item.Settings()));
-			Registry.register(Registries.BLOCK, Identifier.of("losthorizons", "shoctite_block"), Shoctite_Block);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "shoctite_block"), new BlockItem(Shoctite_Block, new Item.Settings()));
-		//Crystalline Sand
-			Registry.register(Registries.BLOCK, Identifier.of("losthorizons", "arcanite_sand"), Arcanite_Sand);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "arcanite_sand"), new BlockItem(Arcanite_Sand, new Item.Settings()));
-			Registry.register(Registries.BLOCK, Identifier.of("losthorizons", "nullix_sand"), Nullix_Sand);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "nullix_sand"), new BlockItem(Nullix_Sand, new Item.Settings()));
-			Registry.register(Registries.BLOCK, Identifier.of("losthorizons", "pyrotite_sand"), Pyrotite_Sand);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "pyrotite_sand"), new BlockItem(Pyrotite_Sand, new Item.Settings()));
-			Registry.register(Registries.BLOCK, Identifier.of("losthorizons", "crylatite_sand"), Crylatite_Sand);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "crylatite_sand"), new BlockItem(Crylatite_Sand, new Item.Settings()));
-			Registry.register(Registries.BLOCK, Identifier.of("losthorizons", "noxite_sand"), Noxite_Sand);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "noxite_sand"), new BlockItem(Noxite_Sand, new Item.Settings()));
-			Registry.register(Registries.BLOCK, Identifier.of("losthorizons", "shoctite_sand"), Shoctite_Sand);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "shoctite_sand"), new BlockItem(Shoctite_Sand, new Item.Settings()));
-		//Crystal "Crop"
-			Registry.register(Registries.BLOCK, Identifier.of("losthorizons", "arcanite_crystal"), Arcanite_Crystal);
-			Registry.register(Registries.BLOCK, Identifier.of("losthorizons", "nullix_crystal"), Nullix_Crystal);
-			Registry.register(Registries.BLOCK, Identifier.of("losthorizons", "pyrotite_crystal"), Pyrotite_Crystal);
-			Registry.register(Registries.BLOCK, Identifier.of("losthorizons", "crylatite_crystal"), Crylatite_Crystal);
-			Registry.register(Registries.BLOCK, Identifier.of("losthorizons", "noxite_crystal"), Noxite_Crystal);
-			Registry.register(Registries.BLOCK, Identifier.of("losthorizons", "shoctite_crystal"), Shoctite_Crystal);
-		//Technology
-			Registry.register(Registries.BLOCK, Identifier.of("losthorizons", "tralyx_conductor"),Tralyx_Conductor);
-			Registry.register(Registries.ITEM, Identifier.of("losthorizons", "tralyx_conductor"), new BlockItem(Tralyx_Conductor, new Item.Settings()));
-		//Adding to Groups
+        //Initialize Generic Items and Blocks
+        ItemGroupGeneric.initialize();
+        ItemGeneric.initialize();
+        BlockGeneric.initialize();
 		//Material Items
 		 addToGroupInPost(Tin_Raw, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMATR_GROUP).getKey().get());
 		 addToGroupInPost(Tin_Ref, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMATR_GROUP).getKey().get());
@@ -311,11 +205,13 @@ public class LostHorizons implements ModInitializer {
 		 addToGroupInPost(Galena_Ore.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMATR_GROUP).getKey().get());
 
 		 addToGroupInPost(Tralyx_Conductor.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMACH_GROUP).getKey().get());
-		 BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, TIN_ORE_PLACED_KEY);
-		 BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, LITHIUM_ORE_PLACED_KEY);
-		 BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, ALUM_ORE_PLACED_KEY);
-		 BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, GALENA_ORE_PLACED_KEY);
-		 BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, HEXATIUM_ORE_PLACED_KEY);
+         addToGroupInPost(Engineers_Gauntlet, Registries.ITEM_GROUP.getEntry(LostHorizons.LHTOOL_GROUP).getKey().get());
+
+		 BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of("losthorizons", "tin_ore")));
+		 BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of("losthorizons", "lithium_ore")));
+		 BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of("losthorizons", "aluminum_ore")));
+		 BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of("losthorizons", "galena_ore")));
+		 BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of("losthorizons", "hexatium_ore")));
 		 LostHorizons.LOGGER.info("Serverside Loaded");
 		}
 
