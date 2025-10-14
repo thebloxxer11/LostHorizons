@@ -111,13 +111,7 @@ public class LostHorizons implements ModInitializer {
 	public static final Item Noxite_Shard =     ItemGeneric.register(new AliasedBlockItem(Noxite_Crystal, new Item.Settings()), "noxite"); //Noxite Crystal - Life - poisons entities
 	public static final Item Shoctite_Shard =   ItemGeneric.register(new AliasedBlockItem(Shoctite_Crystal, new Item.Settings()), "shoctite"); //Shoctite Crystal - Lightning - stuns entities
 	public static final Item Nullix_Shard =     ItemGeneric.register(new AliasedBlockItem(Nullix_Crystal, new Item.Settings()), "nullix"); //Nullix Crystal - Void - Manipulates the Void
-	//Crystal "Seeds"
-//	public static final Item Arcanite_Seed = ItemGeneric.register(new AliasedBlockItem(Arcanite_Crystal, new Item.Settings()), "arcanite_seed");
-//	public static final Item Nullix_Seed = ItemGeneric.register(new AliasedBlockItem(Nullix_Crystal, new Item.Settings()), "nullix_seed");
-//	public static final Item Pyrotite_Seed = ItemGeneric.register(new AliasedBlockItem(Pyrotite_Crystal, new Item.Settings()), "pyrotite_seed");
-//	public static final Item Crylatite_Seed = ItemGeneric.register(new AliasedBlockItem(Crylatite_Crystal, new Item.Settings()), "crylatite_seed");
-//	public static final Item Noxite_Seed = ItemGeneric.register(new AliasedBlockItem(Noxite_Crystal, new Item.Settings()), "noxite_seed");
-//	public static final Item Shoctite_Seed = ItemGeneric.register(new AliasedBlockItem(Shoctite_Crystal, new Item.Settings()), "shoctite_seed");
+
 	public static final Item Engineers_Gauntlet = ItemGeneric.register(new EngineersGauntlet(new Item.Settings().maxCount(1)), "engineers_gauntlet");
 
     //Block Entities
@@ -166,12 +160,7 @@ public class LostHorizons implements ModInitializer {
 		 addToGroupInPost(Crylatite_Shard, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMATR_GROUP).getKey().get());
 		 addToGroupInPost(Noxite_Shard, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMATR_GROUP).getKey().get());
 		 addToGroupInPost(Shoctite_Shard, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMATR_GROUP).getKey().get());
-//		 addToGroupInPost(Arcanite_Seed, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMATR_GROUP).getKey().get());
-//		 addToGroupInPost(Nullix_Seed, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMATR_GROUP).getKey().get());
-//		 addToGroupInPost(Pyrotite_Seed, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMATR_GROUP).getKey().get());
-//		 addToGroupInPost(Crylatite_Seed, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMATR_GROUP).getKey().get());
-//		 addToGroupInPost(Noxite_Seed, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMATR_GROUP).getKey().get());
-//		 addToGroupInPost(Shoctite_Seed, Registries.ITEM_GROUP.getEntry(LostHorizons.LHMATR_GROUP).getKey().get());
+
 		 //Material Blocks
 		 addToGroupInPost(Arcanite_Sand.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMATR_GROUP).getKey().get());
 		 addToGroupInPost(Nullix_Sand.asItem(), Registries.ITEM_GROUP.getEntry(LostHorizons.LHMATR_GROUP).getKey().get());
